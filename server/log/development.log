@@ -964,3 +964,828 @@ Processing by CustomImageUploadController#index as */*
 Completed 200 OK in 59ms (Views: 9.9ms | ActiveRecord: 1.1ms)
 
 
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from instance_eval at /home/dumbooctopus/.rbenv/versions/2.5.3/lib/ruby/gems/2.5.0/gems/activesupport-5.2.2/lib/active_support/lazy_load_hooks.rb:71)
+Started POST "/upload_image" for 127.0.0.1 at 2019-01-12 06:32:12 -0800
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/dumbooctopus/.rbenv/versions/2.5.3/lib/ruby/gems/2.5.0/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+Processing by CustomImageUploadController#index as */*
+  Parameters: {"user_id"=>"1", "picture"=>"data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAUA\nAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO\n    9TXL0Y4OHwAAAABJRU5ErkJggg=="}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/custom_image_upload_controller.rb:19
+  Rendering custom_image_upload/index.json.jbuilder
+  Rendered custom_image_upload/index.json.jbuilder (1.2ms)
+Completed 200 OK in 57ms (Views: 10.4ms | ActiveRecord: 1.0ms)
+
+
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from instance_eval at /home/dumbooctopus/.rbenv/versions/2.5.3/lib/ruby/gems/2.5.0/gems/activesupport-5.2.2/lib/active_support/lazy_load_hooks.rb:71)
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from load at /home/dumbooctopus/.rbenv/versions/2.5.3/bin/rake:23)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/dumbooctopus/.rbenv/versions/2.5.3/bin/rake:23
+Migrating to RenameColumnPicture (20190112170911)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /home/dumbooctopus/.rbenv/versions/2.5.3/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/migrate/20190112170911_rename_column_picture.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TEMPORARY TABLE "ausers" ("id" integer NOT NULL PRIMARY KEY, "first_name" varchar DEFAULT NULL, "last_name" varchar DEFAULT NULL, "phone" integer DEFAULT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "picture_url" varchar DEFAULT NULL)[0m
+  ↳ db/migrate/20190112170911_rename_column_picture.rb:3
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "ausers" ("id","first_name","last_name","phone","created_at","updated_at","picture_url")
+                     SELECT "id","first_name","last_name","phone","created_at","updated_at","picture" FROM "users"[0m
+  ↳ db/migrate/20190112170911_rename_column_picture.rb:3
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE "users"[0m
+  ↳ db/migrate/20190112170911_rename_column_picture.rb:3
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer NOT NULL PRIMARY KEY, "first_name" varchar DEFAULT NULL, "last_name" varchar DEFAULT NULL, "phone" integer DEFAULT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "picture_url" varchar DEFAULT NULL)[0m
+  ↳ db/migrate/20190112170911_rename_column_picture.rb:3
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "users" ("id","first_name","last_name","phone","created_at","updated_at","picture_url")
+                     SELECT "id","first_name","last_name","phone","created_at","updated_at","picture_url" FROM "ausers"[0m
+  ↳ db/migrate/20190112170911_rename_column_picture.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "ausers"[0m
+  ↳ db/migrate/20190112170911_rename_column_picture.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20190112170911"]]
+  ↳ /home/dumbooctopus/.rbenv/versions/2.5.3/bin/rake:23
+  [1m[35m (8.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /home/dumbooctopus/.rbenv/versions/2.5.3/bin/rake:23
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /home/dumbooctopus/.rbenv/versions/2.5.3/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /home/dumbooctopus/.rbenv/versions/2.5.3/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /home/dumbooctopus/.rbenv/versions/2.5.3/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/dumbooctopus/.rbenv/versions/2.5.3/bin/rake:23
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from instance_eval at /home/dumbooctopus/.rbenv/versions/2.5.3/lib/ruby/gems/2.5.0/gems/activesupport-5.2.2/lib/active_support/lazy_load_hooks.rb:71)
+Started POST "/upload_image" for 127.0.0.1 at 2019-01-12 09:12:34 -0800
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/dumbooctopus/.rbenv/versions/2.5.3/lib/ruby/gems/2.5.0/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+Processing by CustomImageUploadController#index as */*
+  Parameters: {"user_id"=>"1", "picture"=>"data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAUA\nAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO\n    9TXL0Y4OHwAAAABJRU5ErkJggg=="}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/custom_image_upload_controller.rb:19
+  Rendering custom_image_upload/index.json.jbuilder
+  Rendered custom_image_upload/index.json.jbuilder (1.1ms)
+Completed 200 OK in 28ms (Views: 9.4ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/upload_image" for 127.0.0.1 at 2019-01-12 09:14:56 -0800
+Processing by CustomImageUploadController#index as */*
+  Parameters: {"user_id"=>"1", "picture"=>"data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAUA\nAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO\n    9TXL0Y4OHwAAAABJRU5ErkJggg=="}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/custom_image_upload_controller.rb:20
+Completed 500 Internal Server Error in 52ms (ActiveRecord: 2.2ms)
+
+
+  
+NoMethodError (private method `update_image' called for #<User:0x00007f1c101fbbb0>
+Did you mean?  updated_at):
+  
+app/controllers/custom_image_upload_controller.rb:6:in `index'
+Started POST "/upload_image" for 127.0.0.1 at 2019-01-12 09:15:34 -0800
+Processing by CustomImageUploadController#index as */*
+  Parameters: {"user_id"=>"1", "picture"=>"data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAUA\nAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO\n    9TXL0Y4OHwAAAABJRU5ErkJggg=="}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/custom_image_upload_controller.rb:20
+Completed 500 Internal Server Error in 63ms (ActiveRecord: 2.2ms)
+
+
+  
+NoMethodError (undefined method `image_url?' for #<User:0x000056488f3f7bd0>):
+  
+app/models/user.rb:53:in `update_image'
+app/controllers/custom_image_upload_controller.rb:6:in `index'
+Started POST "/upload_image" for 127.0.0.1 at 2019-01-12 09:16:04 -0800
+Processing by CustomImageUploadController#index as */*
+  Parameters: {"user_id"=>"1", "picture"=>"data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAUA\nAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO\n    9TXL0Y4OHwAAAABJRU5ErkJggg=="}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/custom_image_upload_controller.rb:20
+Completed 500 Internal Server Error in 57ms (ActiveRecord: 2.6ms)
+
+
+  
+NoMethodError (undefined method `image_url?' for #<User:0x00007f1c0418f4d0>):
+  
+app/models/user.rb:53:in `update_image'
+app/controllers/custom_image_upload_controller.rb:6:in `index'
+Started POST "/upload_image" for 127.0.0.1 at 2019-01-12 09:16:22 -0800
+Processing by CustomImageUploadController#index as */*
+  Parameters: {"user_id"=>"1", "picture"=>"data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAUA\nAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO\n    9TXL0Y4OHwAAAABJRU5ErkJggg=="}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/custom_image_upload_controller.rb:20
+Completed 500 Internal Server Error in 40ms (ActiveRecord: 2.3ms)
+
+
+  
+NameError (uninitialized constant User::Book):
+  
+app/models/user.rb:20:in `upload_image'
+app/models/user.rb:54:in `update_image'
+app/controllers/custom_image_upload_controller.rb:6:in `index'
+Started POST "/upload_image" for 127.0.0.1 at 2019-01-12 09:16:49 -0800
+Processing by CustomImageUploadController#index as */*
+  Parameters: {"user_id"=>"1", "picture"=>"data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAUA\nAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO\n    9TXL0Y4OHwAAAABJRU5ErkJggg=="}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/custom_image_upload_controller.rb:20
+Completed 500 Internal Server Error in 32ms (ActiveRecord: 3.1ms)
+
+
+  
+NameError (uninitialized constant User::Google):
+  
+app/models/user.rb:6:in `storage_bucket'
+app/models/user.rb:20:in `upload_image'
+app/models/user.rb:54:in `update_image'
+app/controllers/custom_image_upload_controller.rb:6:in `index'
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from instance_eval at /home/dumbooctopus/.rbenv/versions/2.5.3/lib/ruby/gems/2.5.0/gems/activesupport-5.2.2/lib/active_support/lazy_load_hooks.rb:71)
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from instance_eval at /home/dumbooctopus/.rbenv/versions/2.5.3/lib/ruby/gems/2.5.0/gems/activesupport-5.2.2/lib/active_support/lazy_load_hooks.rb:71)
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from instance_eval at /home/dumbooctopus/.rbenv/versions/2.5.3/lib/ruby/gems/2.5.0/gems/activesupport-5.2.2/lib/active_support/lazy_load_hooks.rb:71)
+Started POST "/upload_image" for 127.0.0.1 at 2019-01-12 09:18:55 -0800
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/dumbooctopus/.rbenv/versions/2.5.3/lib/ruby/gems/2.5.0/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+Processing by CustomImageUploadController#index as */*
+  Parameters: {"user_id"=>"1", "picture"=>"data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAUA\nAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO\n    9TXL0Y4OHwAAAABJRU5ErkJggg=="}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/custom_image_upload_controller.rb:20
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.9ms)
+
+
+  
+NameError (uninitialized constant User::Google):
+  
+app/models/user.rb:6:in `storage_bucket'
+app/models/user.rb:20:in `upload_image'
+app/models/user.rb:54:in `update_image'
+app/controllers/custom_image_upload_controller.rb:6:in `index'
+Started POST "/upload_image" for 127.0.0.1 at 2019-01-12 09:19:47 -0800
+Processing by CustomImageUploadController#index as */*
+  Parameters: {"user_id"=>"1", "picture"=>"data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAUA\nAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO\n    9TXL0Y4OHwAAAABJRU5ErkJggg=="}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/custom_image_upload_controller.rb:20
+Completed 500 Internal Server Error in 671ms (ActiveRecord: 1.0ms)
+
+
+  
+ArgumentError (project_id is missing):
+  
+app/models/user.rb:8:in `storage_bucket'
+app/models/user.rb:22:in `upload_image'
+app/models/user.rb:56:in `update_image'
+app/controllers/custom_image_upload_controller.rb:6:in `index'
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from instance_eval at /home/dumbooctopus/.rbenv/versions/2.5.3/lib/ruby/gems/2.5.0/gems/activesupport-5.2.2/lib/active_support/lazy_load_hooks.rb:71)
+Started POST "/upload_image" for 127.0.0.1 at 2019-01-12 09:20:46 -0800
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/dumbooctopus/.rbenv/versions/2.5.3/lib/ruby/gems/2.5.0/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+Processing by CustomImageUploadController#index as */*
+  Parameters: {"user_id"=>"1", "picture"=>"data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAUA\nAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO\n    9TXL0Y4OHwAAAABJRU5ErkJggg=="}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/custom_image_upload_controller.rb:20
+Sending HTTP get https://www.googleapis.com/storage/v1/b/secure-zone-sbhacks2019?
+404
+#<HTTP::Message:0x00007fe3bda3cf70 @http_header=#<HTTP::Message::Headers:0x00007fe3bda3cf48 @http_version="1.1", @body_size=0, @chunked=false, @request_method="GET", @request_uri=#<Addressable::URI:0x3ff1ded1ecb8 URI:https://www.googleapis.com/storage/v1/b/secure-zone-sbhacks2019?>, @request_query=nil, @request_absolute_uri=nil, @status_code=404, @reason_phrase="Not Found", @body_type=nil, @body_charset=nil, @body_date=nil, @body_encoding=#<Encoding:UTF-8>, @is_request=false, @header_item=[["X-GUploader-UploadID", "AEnB2UocSjZzSjxvXuMxeeEL5vh6B8nY6K6Li76VzEmXqgeqlWpd5JO8mYE8It_xvZhXhxH7gjQnyn0Fka7GF9DzShf7n53fGw"], ["Vary", "Origin"], ["Vary", "X-Origin"], ["Content-Type", "application/json; charset=UTF-8"], ["Date", "Sat, 12 Jan 2019 17:20:46 GMT"], ["Expires", "Sat, 12 Jan 2019 17:20:46 GMT"], ["Cache-Control", "private, max-age=0"], ["Content-Length", "165"], ["Server", "UploadServer"], ["Alt-Svc", "quic=\":443\"; ma=2592000; v=\"44,43,39,35\""]], @dumped=false>, @peer_cert=#<OpenSSL::X509::Certificate: subject=#<OpenSSL::X509::Name CN=*.googleapis.com,O=Google LLC,L=Mountain View,ST=California,C=US>, issuer=#<OpenSSL::X509::Name CN=Google Internet Authority G3,O=Google Trust Services,C=US>, serial=#<OpenSSL::BN:0x00007fe3bdb34d60>, not_before=2018-12-19 08:17:00 UTC, not_after=2019-03-13 08:17:00 UTC>, @http_body=#<HTTP::Message::Body:0x00007fe3bda3ced0 @body="{\n \"error\": {\n  \"errors\": [\n   {\n    \"domain\": \"global\",\n    \"reason\": \"notFound\",\n    \"message\": \"Not Found\"\n   }\n  ],\n  \"code\": 404,\n  \"message\": \"Not Found\"\n }\n}\n", @size=0, @positions=nil, @chunk_size=nil>, @previous=nil>
+Caught error notFound: Not Found
+Error - #<Google::Apis::ClientError: notFound: Not Found status_code: 404 header: #<HTTP::Message::Headers:0x00007fe3bdb34478 @http_version="1.1", @body_size=0, @chunked=false, @request_method="GET", @request_uri=#<Addressable::URI:0x3ff1ded1ecb8 URI:https://www.googleapis.com/storage/v1/b/secure-zone-sbhacks2019?>, @request_query=nil, @request_absolute_uri=nil, @status_code=404, @reason_phrase="Not Found", @body_type=nil, @body_charset=nil, @body_date=nil, @body_encoding=#<Encoding:UTF-8>, @is_request=false, @header_item=[["X-GUploader-UploadID", "AEnB2UocSjZzSjxvXuMxeeEL5vh6B8nY6K6Li76VzEmXqgeqlWpd5JO8mYE8It_xvZhXhxH7gjQnyn0Fka7GF9DzShf7n53fGw"], ["Vary", "Origin"], ["Vary", "X-Origin"], ["Content-Type", "application/json; charset=UTF-8"], ["Date", "Sat, 12 Jan 2019 17:20:46 GMT"], ["Expires", "Sat, 12 Jan 2019 17:20:46 GMT"], ["Cache-Control", "private, max-age=0"], ["Content-Length", "165"], ["Server", "UploadServer"], ["Alt-Svc", "quic=\":443\"; ma=2592000; v=\"44,43,39,35\""]], @dumped=false> body: "{\n \"error\": {\n  \"errors\": [\n   {\n    \"domain\": \"global\",\n    \"reason\": \"notFound\",\n    \"message\": \"Not Found\"\n   }\n  ],\n  \"code\": 404,\n  \"message\": \"Not Found\"\n }\n}\n">
+
+Completed 500 Internal Server Error in 569ms (ActiveRecord: 0.9ms)
+
+
+  
+NameError (undefined local variable or method `cover_image' for #<User:0x00007fe3bd8b52b0>):
+  
+app/models/user.rb:23:in `upload_image'
+app/models/user.rb:56:in `update_image'
+app/controllers/custom_image_upload_controller.rb:6:in `index'
+Started POST "/upload_image" for 127.0.0.1 at 2019-01-12 09:21:39 -0800
+Processing by CustomImageUploadController#index as */*
+  Parameters: {"user_id"=>"1", "picture"=>"data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAUA\nAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO\n    9TXL0Y4OHwAAAABJRU5ErkJggg=="}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/custom_image_upload_controller.rb:20
+Sending HTTP get https://www.googleapis.com/storage/v1/b/secure-zone-sbhacks2019?
+404
+#<HTTP::Message:0x00007fe3c020fd68 @http_header=#<HTTP::Message::Headers:0x00007fe3c020fd40 @http_version="1.1", @body_size=0, @chunked=false, @request_method="GET", @request_uri=#<Addressable::URI:0x3ff1dee3c3e8 URI:https://www.googleapis.com/storage/v1/b/secure-zone-sbhacks2019?>, @request_query=nil, @request_absolute_uri=nil, @status_code=404, @reason_phrase="Not Found", @body_type=nil, @body_charset=nil, @body_date=nil, @body_encoding=#<Encoding:UTF-8>, @is_request=false, @header_item=[["X-GUploader-UploadID", "AEnB2Ur8RF4agch4PB3OBLXGwAsmvWVdLn0dM6Hg3aMVovP5WPflXlONT2QbJ4LE_mdhAe4xw_wgrn3UBupq6ehD6Y9j38wAxg"], ["Vary", "Origin"], ["Vary", "X-Origin"], ["Content-Type", "application/json; charset=UTF-8"], ["Date", "Sat, 12 Jan 2019 17:21:40 GMT"], ["Expires", "Sat, 12 Jan 2019 17:21:40 GMT"], ["Cache-Control", "private, max-age=0"], ["Content-Length", "165"], ["Server", "UploadServer"], ["Alt-Svc", "quic=\":443\"; ma=2592000; v=\"44,43,39,35\""]], @dumped=false>, @peer_cert=#<OpenSSL::X509::Certificate: subject=#<OpenSSL::X509::Name CN=*.googleapis.com,O=Google LLC,L=Mountain View,ST=California,C=US>, issuer=#<OpenSSL::X509::Name CN=Google Internet Authority G3,O=Google Trust Services,C=US>, serial=#<OpenSSL::BN:0x00007fe3bdc70058>, not_before=2018-12-19 08:17:00 UTC, not_after=2019-03-13 08:17:00 UTC>, @http_body=#<HTTP::Message::Body:0x00007fe3c020fcc8 @body="{\n \"error\": {\n  \"errors\": [\n   {\n    \"domain\": \"global\",\n    \"reason\": \"notFound\",\n    \"message\": \"Not Found\"\n   }\n  ],\n  \"code\": 404,\n  \"message\": \"Not Found\"\n }\n}\n", @size=0, @positions=nil, @chunk_size=nil>, @previous=nil>
+Caught error notFound: Not Found
+Error - #<Google::Apis::ClientError: notFound: Not Found status_code: 404 header: #<HTTP::Message::Headers:0x00007fe3c0317788 @http_version="1.1", @body_size=0, @chunked=false, @request_method="GET", @request_uri=#<Addressable::URI:0x3ff1dee3c3e8 URI:https://www.googleapis.com/storage/v1/b/secure-zone-sbhacks2019?>, @request_query=nil, @request_absolute_uri=nil, @status_code=404, @reason_phrase="Not Found", @body_type=nil, @body_charset=nil, @body_date=nil, @body_encoding=#<Encoding:UTF-8>, @is_request=false, @header_item=[["X-GUploader-UploadID", "AEnB2Ur8RF4agch4PB3OBLXGwAsmvWVdLn0dM6Hg3aMVovP5WPflXlONT2QbJ4LE_mdhAe4xw_wgrn3UBupq6ehD6Y9j38wAxg"], ["Vary", "Origin"], ["Vary", "X-Origin"], ["Content-Type", "application/json; charset=UTF-8"], ["Date", "Sat, 12 Jan 2019 17:21:40 GMT"], ["Expires", "Sat, 12 Jan 2019 17:21:40 GMT"], ["Cache-Control", "private, max-age=0"], ["Content-Length", "165"], ["Server", "UploadServer"], ["Alt-Svc", "quic=\":443\"; ma=2592000; v=\"44,43,39,35\""]], @dumped=false> body: "{\n \"error\": {\n  \"errors\": [\n   {\n    \"domain\": \"global\",\n    \"reason\": \"notFound\",\n    \"message\": \"Not Found\"\n   }\n  ],\n  \"code\": 404,\n  \"message\": \"Not Found\"\n }\n}\n">
+
+Completed 500 Internal Server Error in 401ms (ActiveRecord: 2.2ms)
+
+
+  
+NoMethodError (undefined method `tempfile' for #<String:0x00007fe3bdcef948>):
+  
+app/models/user.rb:23:in `upload_image'
+app/models/user.rb:56:in `update_image'
+app/controllers/custom_image_upload_controller.rb:6:in `index'
+Started POST "/upload_image" for 127.0.0.1 at 2019-01-12 09:23:14 -0800
+Processing by CustomImageUploadController#index as */*
+  Parameters: {"user_id"=>"1", "picture"=>"data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAUA\nAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO\n    9TXL0Y4OHwAAAABJRU5ErkJggg=="}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/custom_image_upload_controller.rb:20
+Sending HTTP get https://www.googleapis.com/storage/v1/b/secure-zone-sbhacks2019?
+404
+#<HTTP::Message:0x00007fe3bd324c60 @http_header=#<HTTP::Message::Headers:0x00007fe3bd324c38 @http_version="1.1", @body_size=0, @chunked=false, @request_method="GET", @request_uri=#<Addressable::URI:0x3ff1de993030 URI:https://www.googleapis.com/storage/v1/b/secure-zone-sbhacks2019?>, @request_query=nil, @request_absolute_uri=nil, @status_code=404, @reason_phrase="Not Found", @body_type=nil, @body_charset=nil, @body_date=nil, @body_encoding=#<Encoding:UTF-8>, @is_request=false, @header_item=[["X-GUploader-UploadID", "AEnB2Ur5bamnJDkrSQTF-TVc3bplRql_vgxt62kwaAcRbbnZ0kXLSFQz5d4F4ok03B288GCqlSAblqTdR1sMrtmG-HNuwLK48w"], ["Vary", "Origin"], ["Vary", "X-Origin"], ["Content-Type", "application/json; charset=UTF-8"], ["Date", "Sat, 12 Jan 2019 17:23:14 GMT"], ["Expires", "Sat, 12 Jan 2019 17:23:14 GMT"], ["Cache-Control", "private, max-age=0"], ["Content-Length", "165"], ["Server", "UploadServer"], ["Alt-Svc", "quic=\":443\"; ma=2592000; v=\"44,43,39,35\""]], @dumped=false>, @peer_cert=#<OpenSSL::X509::Certificate: subject=#<OpenSSL::X509::Name CN=*.googleapis.com,O=Google LLC,L=Mountain View,ST=California,C=US>, issuer=#<OpenSSL::X509::Name CN=Google Internet Authority G3,O=Google Trust Services,C=US>, serial=#<OpenSSL::BN:0x00007fe3bd2e9ac0>, not_before=2018-12-19 08:17:00 UTC, not_after=2019-03-13 08:17:00 UTC>, @http_body=#<HTTP::Message::Body:0x00007fe3bd324bc0 @body="{\n \"error\": {\n  \"errors\": [\n   {\n    \"domain\": \"global\",\n    \"reason\": \"notFound\",\n    \"message\": \"Not Found\"\n   }\n  ],\n  \"code\": 404,\n  \"message\": \"Not Found\"\n }\n}\n", @size=0, @positions=nil, @chunk_size=nil>, @previous=nil>
+Caught error notFound: Not Found
+Error - #<Google::Apis::ClientError: notFound: Not Found status_code: 404 header: #<HTTP::Message::Headers:0x00007fe3bd2e8f30 @http_version="1.1", @body_size=0, @chunked=false, @request_method="GET", @request_uri=#<Addressable::URI:0x3ff1de993030 URI:https://www.googleapis.com/storage/v1/b/secure-zone-sbhacks2019?>, @request_query=nil, @request_absolute_uri=nil, @status_code=404, @reason_phrase="Not Found", @body_type=nil, @body_charset=nil, @body_date=nil, @body_encoding=#<Encoding:UTF-8>, @is_request=false, @header_item=[["X-GUploader-UploadID", "AEnB2Ur5bamnJDkrSQTF-TVc3bplRql_vgxt62kwaAcRbbnZ0kXLSFQz5d4F4ok03B288GCqlSAblqTdR1sMrtmG-HNuwLK48w"], ["Vary", "Origin"], ["Vary", "X-Origin"], ["Content-Type", "application/json; charset=UTF-8"], ["Date", "Sat, 12 Jan 2019 17:23:14 GMT"], ["Expires", "Sat, 12 Jan 2019 17:23:14 GMT"], ["Cache-Control", "private, max-age=0"], ["Content-Length", "165"], ["Server", "UploadServer"], ["Alt-Svc", "quic=\":443\"; ma=2592000; v=\"44,43,39,35\""]], @dumped=false> body: "{\n \"error\": {\n  \"errors\": [\n   {\n    \"domain\": \"global\",\n    \"reason\": \"notFound\",\n    \"message\": \"Not Found\"\n   }\n  ],\n  \"code\": 404,\n  \"message\": \"Not Found\"\n }\n}\n">
+
+Completed 500 Internal Server Error in 403ms (ActiveRecord: 2.9ms)
+
+
+  
+NoMethodError (undefined method `original_filename' for #<String:0x00007fe3bd5a4828>):
+  
+app/models/user.rb:24:in `upload_image'
+app/models/user.rb:56:in `update_image'
+app/controllers/custom_image_upload_controller.rb:6:in `index'
+Started POST "/upload_image" for 127.0.0.1 at 2019-01-12 09:37:48 -0800
+Processing by CustomImageUploadController#index as */*
+  Parameters: {"user_id"=>"1", "picture"=>"data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAUA\nAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO\n    9TXL0Y4OHwAAAABJRU5ErkJggg=="}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/custom_image_upload_controller.rb:20
+Completed 500 Internal Server Error in 35ms (ActiveRecord: 2.9ms)
+
+
+  
+TypeError (String can't be coerced into Integer):
+  
+app/models/user.rb:22:in `+'
+app/models/user.rb:22:in `upload_image'
+app/models/user.rb:60:in `update_image'
+app/controllers/custom_image_upload_controller.rb:6:in `index'
+Started POST "/upload_image" for 127.0.0.1 at 2019-01-12 09:38:12 -0800
+Processing by CustomImageUploadController#index as */*
+  Parameters: {"user_id"=>"1", "picture"=>"data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAUA\nAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO\n    9TXL0Y4OHwAAAABJRU5ErkJggg=="}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/custom_image_upload_controller.rb:20
+Completed 500 Internal Server Error in 75ms (ActiveRecord: 3.4ms)
+
+
+  
+NameError (undefined local variable or method `encoded_string' for #<User:0x00007fe3c015acd8>
+Did you mean?  encode_with):
+  
+app/models/user.rb:27:in `block in upload_image'
+app/models/user.rb:26:in `open'
+app/models/user.rb:26:in `upload_image'
+app/models/user.rb:60:in `update_image'
+app/controllers/custom_image_upload_controller.rb:6:in `index'
+Started POST "/upload_image" for 127.0.0.1 at 2019-01-12 09:38:52 -0800
+Processing by CustomImageUploadController#index as */*
+  Parameters: {"user_id"=>"1", "picture"=>"data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAUA\nAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO\n    9TXL0Y4OHwAAAABJRU5ErkJggg=="}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/custom_image_upload_controller.rb:20
+Sending HTTP get https://www.googleapis.com/storage/v1/b/secure-zone-sbhacks2019?
+404
+#<HTTP::Message:0x00007fe3bd563490 @http_header=#<HTTP::Message::Headers:0x00007fe3bd563468 @http_version="1.1", @body_size=0, @chunked=false, @request_method="GET", @request_uri=#<Addressable::URI:0x3ff1deab420c URI:https://www.googleapis.com/storage/v1/b/secure-zone-sbhacks2019?>, @request_query=nil, @request_absolute_uri=nil, @status_code=404, @reason_phrase="Not Found", @body_type=nil, @body_charset=nil, @body_date=nil, @body_encoding=#<Encoding:UTF-8>, @is_request=false, @header_item=[["X-GUploader-UploadID", "AEnB2UoeIaNd920o7bq2gJdvSzVRn8E9Ey63KXEmJeMQTMW6a1qnDF8pVfVI-B9RNQFlo3NlbTzjrTmytW-0oTmTNyVmrmUa2w"], ["Vary", "Origin"], ["Vary", "X-Origin"], ["Content-Type", "application/json; charset=UTF-8"], ["Date", "Sat, 12 Jan 2019 17:38:53 GMT"], ["Expires", "Sat, 12 Jan 2019 17:38:53 GMT"], ["Cache-Control", "private, max-age=0"], ["Content-Length", "165"], ["Server", "UploadServer"], ["Alt-Svc", "quic=\":443\"; ma=2592000; v=\"44,43,39,35\""]], @dumped=false>, @peer_cert=#<OpenSSL::X509::Certificate: subject=#<OpenSSL::X509::Name CN=*.googleapis.com,O=Google LLC,L=Mountain View,ST=California,C=US>, issuer=#<OpenSSL::X509::Name CN=Google Internet Authority G3,O=Google Trust Services,C=US>, serial=#<OpenSSL::BN:0x00007fe3bd54b9a8>, not_before=2018-12-19 08:17:00 UTC, not_after=2019-03-13 08:17:00 UTC>, @http_body=#<HTTP::Message::Body:0x00007fe3bd5633f0 @body="{\n \"error\": {\n  \"errors\": [\n   {\n    \"domain\": \"global\",\n    \"reason\": \"notFound\",\n    \"message\": \"Not Found\"\n   }\n  ],\n  \"code\": 404,\n  \"message\": \"Not Found\"\n }\n}\n", @size=0, @positions=nil, @chunk_size=nil>, @previous=nil>
+Caught error notFound: Not Found
+Error - #<Google::Apis::ClientError: notFound: Not Found status_code: 404 header: #<HTTP::Message::Headers:0x00007fe3bd54ae18 @http_version="1.1", @body_size=0, @chunked=false, @request_method="GET", @request_uri=#<Addressable::URI:0x3ff1deab420c URI:https://www.googleapis.com/storage/v1/b/secure-zone-sbhacks2019?>, @request_query=nil, @request_absolute_uri=nil, @status_code=404, @reason_phrase="Not Found", @body_type=nil, @body_charset=nil, @body_date=nil, @body_encoding=#<Encoding:UTF-8>, @is_request=false, @header_item=[["X-GUploader-UploadID", "AEnB2UoeIaNd920o7bq2gJdvSzVRn8E9Ey63KXEmJeMQTMW6a1qnDF8pVfVI-B9RNQFlo3NlbTzjrTmytW-0oTmTNyVmrmUa2w"], ["Vary", "Origin"], ["Vary", "X-Origin"], ["Content-Type", "application/json; charset=UTF-8"], ["Date", "Sat, 12 Jan 2019 17:38:53 GMT"], ["Expires", "Sat, 12 Jan 2019 17:38:53 GMT"], ["Cache-Control", "private, max-age=0"], ["Content-Length", "165"], ["Server", "UploadServer"], ["Alt-Svc", "quic=\":443\"; ma=2592000; v=\"44,43,39,35\""]], @dumped=false> body: "{\n \"error\": {\n  \"errors\": [\n   {\n    \"domain\": \"global\",\n    \"reason\": \"notFound\",\n    \"message\": \"Not Found\"\n   }\n  ],\n  \"code\": 404,\n  \"message\": \"Not Found\"\n }\n}\n">
+
+Completed 500 Internal Server Error in 479ms (ActiveRecord: 1.3ms)
+
+
+  
+NoMethodError (undefined method `create_file' for nil:NilClass):
+  
+app/models/user.rb:31:in `upload_image'
+app/models/user.rb:61:in `update_image'
+app/controllers/custom_image_upload_controller.rb:6:in `index'
+Started POST "/upload_image" for 127.0.0.1 at 2019-01-12 09:39:44 -0800
+Processing by CustomImageUploadController#index as */*
+  Parameters: {"user_id"=>"1", "picture"=>"data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAUA\nAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO\n    9TXL0Y4OHwAAAABJRU5ErkJggg=="}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/custom_image_upload_controller.rb:20
+Sending HTTP get https://www.googleapis.com/storage/v1/b/secure-zone-sbhacks2019?
+404
+#<HTTP::Message:0x00007fe3bc85f398 @http_header=#<HTTP::Message::Headers:0x00007fe3bc85f370 @http_version="1.1", @body_size=0, @chunked=false, @request_method="GET", @request_uri=#<Addressable::URI:0x3ff1de42ffbc URI:https://www.googleapis.com/storage/v1/b/secure-zone-sbhacks2019?>, @request_query=nil, @request_absolute_uri=nil, @status_code=404, @reason_phrase="Not Found", @body_type=nil, @body_charset=nil, @body_date=nil, @body_encoding=#<Encoding:UTF-8>, @is_request=false, @header_item=[["X-GUploader-UploadID", "AEnB2UrWFNUz4KzyyiTr1UBkKMAFaYmaTbYog1Ky649ZD31UOiDZFvqC_UTZfrs8N4FdIy3fueT8aiDQxqqFP4j64kvTKCCZDQ"], ["Vary", "Origin"], ["Vary", "X-Origin"], ["Content-Type", "application/json; charset=UTF-8"], ["Date", "Sat, 12 Jan 2019 17:39:44 GMT"], ["Expires", "Sat, 12 Jan 2019 17:39:44 GMT"], ["Cache-Control", "private, max-age=0"], ["Content-Length", "165"], ["Server", "UploadServer"], ["Alt-Svc", "quic=\":443\"; ma=2592000; v=\"44,43,39,35\""]], @dumped=false>, @peer_cert=#<OpenSSL::X509::Certificate: subject=#<OpenSSL::X509::Name CN=*.googleapis.com,O=Google LLC,L=Mountain View,ST=California,C=US>, issuer=#<OpenSSL::X509::Name CN=Google Internet Authority G3,O=Google Trust Services,C=US>, serial=#<OpenSSL::BN:0x00007fe3bc8344e0>, not_before=2018-12-19 08:17:00 UTC, not_after=2019-03-13 08:17:00 UTC>, @http_body=#<HTTP::Message::Body:0x00007fe3bc85f2f8 @body="{\n \"error\": {\n  \"errors\": [\n   {\n    \"domain\": \"global\",\n    \"reason\": \"notFound\",\n    \"message\": \"Not Found\"\n   }\n  ],\n  \"code\": 404,\n  \"message\": \"Not Found\"\n }\n}\n", @size=0, @positions=nil, @chunk_size=nil>, @previous=nil>
+Caught error notFound: Not Found
+Error - #<Google::Apis::ClientError: notFound: Not Found status_code: 404 header: #<HTTP::Message::Headers:0x00007fe3bc823960 @http_version="1.1", @body_size=0, @chunked=false, @request_method="GET", @request_uri=#<Addressable::URI:0x3ff1de42ffbc URI:https://www.googleapis.com/storage/v1/b/secure-zone-sbhacks2019?>, @request_query=nil, @request_absolute_uri=nil, @status_code=404, @reason_phrase="Not Found", @body_type=nil, @body_charset=nil, @body_date=nil, @body_encoding=#<Encoding:UTF-8>, @is_request=false, @header_item=[["X-GUploader-UploadID", "AEnB2UrWFNUz4KzyyiTr1UBkKMAFaYmaTbYog1Ky649ZD31UOiDZFvqC_UTZfrs8N4FdIy3fueT8aiDQxqqFP4j64kvTKCCZDQ"], ["Vary", "Origin"], ["Vary", "X-Origin"], ["Content-Type", "application/json; charset=UTF-8"], ["Date", "Sat, 12 Jan 2019 17:39:44 GMT"], ["Expires", "Sat, 12 Jan 2019 17:39:44 GMT"], ["Cache-Control", "private, max-age=0"], ["Content-Length", "165"], ["Server", "UploadServer"], ["Alt-Svc", "quic=\":443\"; ma=2592000; v=\"44,43,39,35\""]], @dumped=false> body: "{\n \"error\": {\n  \"errors\": [\n   {\n    \"domain\": \"global\",\n    \"reason\": \"notFound\",\n    \"message\": \"Not Found\"\n   }\n  ],\n  \"code\": 404,\n  \"message\": \"Not Found\"\n }\n}\n">
+
+Completed 500 Internal Server Error in 358ms (ActiveRecord: 1.5ms)
+
+
+  
+NoMethodError (undefined method `create_file' for nil:NilClass):
+  
+app/models/user.rb:32:in `upload_image'
+app/models/user.rb:62:in `update_image'
+app/controllers/custom_image_upload_controller.rb:6:in `index'
+Started POST "/upload_image" for 127.0.0.1 at 2019-01-12 09:41:09 -0800
+Processing by CustomImageUploadController#index as */*
+  Parameters: {"user_id"=>"1", "picture"=>"data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAUA\nAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO\n    9TXL0Y4OHwAAAABJRU5ErkJggg=="}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/custom_image_upload_controller.rb:20
+Completed 500 Internal Server Error in 46ms (ActiveRecord: 2.1ms)
+
+
+  
+NameError (undefined local variable or method `storage_bucket' for #<User:0x00007fe3c006cb78>):
+  
+app/models/user.rb:31:in `upload_image'
+app/models/user.rb:62:in `update_image'
+app/controllers/custom_image_upload_controller.rb:6:in `index'
+Started POST "/upload_image" for 127.0.0.1 at 2019-01-12 10:12:50 -0800
+Processing by CustomImageUploadController#index as */*
+  Parameters: {"user_id"=>"1", "picture"=>"data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAUA\nAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO\n    9TXL0Y4OHwAAAABJRU5ErkJggg=="}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/custom_image_upload_controller.rb:20
+Sending HTTP get https://www.googleapis.com/storage/v1/b/secure-zone-sbhacks2019?
+404
+#<HTTP::Message:0x00007fe3bd21dfb0 @http_header=#<HTTP::Message::Headers:0x00007fe3bd21df88 @http_version="1.1", @body_size=0, @chunked=false, @request_method="GET", @request_uri=#<Addressable::URI:0x3ff1de90fcbc URI:https://www.googleapis.com/storage/v1/b/secure-zone-sbhacks2019?>, @request_query=nil, @request_absolute_uri=nil, @status_code=404, @reason_phrase="Not Found", @body_type=nil, @body_charset=nil, @body_date=nil, @body_encoding=#<Encoding:UTF-8>, @is_request=false, @header_item=[["X-GUploader-UploadID", "AEnB2UqBy1WMV5nwGBQh4zd04xzfYWrvt1UzvYQ8XDa-qqWCAfM7mQDd-meCQROXmf7HeUmAN2h5of0_PbDIS5yvcGBfLHT4Mw"], ["Vary", "Origin"], ["Vary", "X-Origin"], ["Content-Type", "application/json; charset=UTF-8"], ["Date", "Sat, 12 Jan 2019 18:12:51 GMT"], ["Expires", "Sat, 12 Jan 2019 18:12:51 GMT"], ["Cache-Control", "private, max-age=0"], ["Content-Length", "165"], ["Server", "UploadServer"], ["Alt-Svc", "quic=\":443\"; ma=2592000; v=\"44,43,39,35\""]], @dumped=false>, @peer_cert=#<OpenSSL::X509::Certificate: subject=#<OpenSSL::X509::Name CN=*.googleapis.com,O=Google LLC,L=Mountain View,ST=California,C=US>, issuer=#<OpenSSL::X509::Name CN=Google Internet Authority G3,O=Google Trust Services,C=US>, serial=#<OpenSSL::BN:0x00007fe3bd2088b8>, not_before=2018-12-19 08:17:00 UTC, not_after=2019-03-13 08:17:00 UTC>, @http_body=#<HTTP::Message::Body:0x00007fe3bd21df10 @body="{\n \"error\": {\n  \"errors\": [\n   {\n    \"domain\": \"global\",\n    \"reason\": \"notFound\",\n    \"message\": \"Not Found\"\n   }\n  ],\n  \"code\": 404,\n  \"message\": \"Not Found\"\n }\n}\n", @size=0, @positions=nil, @chunk_size=nil>, @previous=nil>
+Caught error notFound: Not Found
+Error - #<Google::Apis::ClientError: notFound: Not Found status_code: 404 header: #<HTTP::Message::Headers:0x00007fe3bd1bf1b8 @http_version="1.1", @body_size=0, @chunked=false, @request_method="GET", @request_uri=#<Addressable::URI:0x3ff1de90fcbc URI:https://www.googleapis.com/storage/v1/b/secure-zone-sbhacks2019?>, @request_query=nil, @request_absolute_uri=nil, @status_code=404, @reason_phrase="Not Found", @body_type=nil, @body_charset=nil, @body_date=nil, @body_encoding=#<Encoding:UTF-8>, @is_request=false, @header_item=[["X-GUploader-UploadID", "AEnB2UqBy1WMV5nwGBQh4zd04xzfYWrvt1UzvYQ8XDa-qqWCAfM7mQDd-meCQROXmf7HeUmAN2h5of0_PbDIS5yvcGBfLHT4Mw"], ["Vary", "Origin"], ["Vary", "X-Origin"], ["Content-Type", "application/json; charset=UTF-8"], ["Date", "Sat, 12 Jan 2019 18:12:51 GMT"], ["Expires", "Sat, 12 Jan 2019 18:12:51 GMT"], ["Cache-Control", "private, max-age=0"], ["Content-Length", "165"], ["Server", "UploadServer"], ["Alt-Svc", "quic=\":443\"; ma=2592000; v=\"44,43,39,35\""]], @dumped=false> body: "{\n \"error\": {\n  \"errors\": [\n   {\n    \"domain\": \"global\",\n    \"reason\": \"notFound\",\n    \"message\": \"Not Found\"\n   }\n  ],\n  \"code\": 404,\n  \"message\": \"Not Found\"\n }\n}\n">
+
+Completed 500 Internal Server Error in 722ms (ActiveRecord: 0.9ms)
+
+
+  
+TypeError (no implicit conversion of nil into String):
+  
+app/models/user.rb:32:in `+'
+app/models/user.rb:32:in `upload_image'
+app/models/user.rb:64:in `update_image'
+app/controllers/custom_image_upload_controller.rb:6:in `index'
+Started POST "/upload_image" for 127.0.0.1 at 2019-01-12 10:13:01 -0800
+Processing by CustomImageUploadController#index as */*
+  Parameters: {"user_id"=>"1", "picture"=>"data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAUA\nAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO\n    9TXL0Y4OHwAAAABJRU5ErkJggg=="}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/custom_image_upload_controller.rb:20
+Sending HTTP get https://www.googleapis.com/storage/v1/b/secure-zone-sbhacks2019?
+404
+#<HTTP::Message:0x00005622d1a6dc00 @http_header=#<HTTP::Message::Headers:0x00005622d1a6dbd8 @http_version="1.1", @body_size=0, @chunked=false, @request_method="GET", @request_uri=#<Addressable::URI:0x2b1168d37da0 URI:https://www.googleapis.com/storage/v1/b/secure-zone-sbhacks2019?>, @request_query=nil, @request_absolute_uri=nil, @status_code=404, @reason_phrase="Not Found", @body_type=nil, @body_charset=nil, @body_date=nil, @body_encoding=#<Encoding:UTF-8>, @is_request=false, @header_item=[["X-GUploader-UploadID", "AEnB2UphMEt1yCsS0-Q2-jtjP2imXi3r73BO1eFwPhfIX0N9ca36W-ZQw-aG-TkCE0gfDBSL2PzALGifOsgB0XuHuproq6hqfg"], ["Vary", "Origin"], ["Vary", "X-Origin"], ["Content-Type", "application/json; charset=UTF-8"], ["Date", "Sat, 12 Jan 2019 18:13:02 GMT"], ["Expires", "Sat, 12 Jan 2019 18:13:02 GMT"], ["Cache-Control", "private, max-age=0"], ["Content-Length", "165"], ["Server", "UploadServer"], ["Alt-Svc", "quic=\":443\"; ma=2592000; v=\"44,43,39,35\""]], @dumped=false>, @peer_cert=#<OpenSSL::X509::Certificate: subject=#<OpenSSL::X509::Name CN=*.googleapis.com,O=Google LLC,L=Mountain View,ST=California,C=US>, issuer=#<OpenSSL::X509::Name CN=Google Internet Authority G3,O=Google Trust Services,C=US>, serial=#<OpenSSL::BN:0x00005622d19d4d48>, not_before=2018-12-19 08:17:00 UTC, not_after=2019-03-13 08:17:00 UTC>, @http_body=#<HTTP::Message::Body:0x00005622d1a6da20 @body="{\n \"error\": {\n  \"errors\": [\n   {\n    \"domain\": \"global\",\n    \"reason\": \"notFound\",\n    \"message\": \"Not Found\"\n   }\n  ],\n  \"code\": 404,\n  \"message\": \"Not Found\"\n }\n}\n", @size=0, @positions=nil, @chunk_size=nil>, @previous=nil>
+Caught error notFound: Not Found
+Error - #<Google::Apis::ClientError: notFound: Not Found status_code: 404 header: #<HTTP::Message::Headers:0x00005622d19cabb8 @http_version="1.1", @body_size=0, @chunked=false, @request_method="GET", @request_uri=#<Addressable::URI:0x2b1168d37da0 URI:https://www.googleapis.com/storage/v1/b/secure-zone-sbhacks2019?>, @request_query=nil, @request_absolute_uri=nil, @status_code=404, @reason_phrase="Not Found", @body_type=nil, @body_charset=nil, @body_date=nil, @body_encoding=#<Encoding:UTF-8>, @is_request=false, @header_item=[["X-GUploader-UploadID", "AEnB2UphMEt1yCsS0-Q2-jtjP2imXi3r73BO1eFwPhfIX0N9ca36W-ZQw-aG-TkCE0gfDBSL2PzALGifOsgB0XuHuproq6hqfg"], ["Vary", "Origin"], ["Vary", "X-Origin"], ["Content-Type", "application/json; charset=UTF-8"], ["Date", "Sat, 12 Jan 2019 18:13:02 GMT"], ["Expires", "Sat, 12 Jan 2019 18:13:02 GMT"], ["Cache-Control", "private, max-age=0"], ["Content-Length", "165"], ["Server", "UploadServer"], ["Alt-Svc", "quic=\":443\"; ma=2592000; v=\"44,43,39,35\""]], @dumped=false> body: "{\n \"error\": {\n  \"errors\": [\n   {\n    \"domain\": \"global\",\n    \"reason\": \"notFound\",\n    \"message\": \"Not Found\"\n   }\n  ],\n  \"code\": 404,\n  \"message\": \"Not Found\"\n }\n}\n">
+
+Sending HTTP get https://www.googleapis.com/storage/v1/b/secure-zone-sbhacks2019?
+404
+#<HTTP::Message:0x00005622d18688d8 @http_header=#<HTTP::Message::Headers:0x00005622d1868810 @http_version="1.1", @body_size=0, @chunked=false, @request_method="GET", @request_uri=#<Addressable::URI:0x2b1168c3563c URI:https://www.googleapis.com/storage/v1/b/secure-zone-sbhacks2019?>, @request_query=nil, @request_absolute_uri=nil, @status_code=404, @reason_phrase="Not Found", @body_type=nil, @body_charset=nil, @body_date=nil, @body_encoding=#<Encoding:UTF-8>, @is_request=false, @header_item=[["X-GUploader-UploadID", "AEnB2Uo5kMNJvL-0k6dNT-W1Ef3xFLq6TTnvIasAe6MMPqSrgHiPcs7stfgydRGDOWo6bmiHaFyyIeTmUdq8_OnL7bHCVVXf9A"], ["Vary", "Origin"], ["Vary", "X-Origin"], ["Content-Type", "application/json; charset=UTF-8"], ["Date", "Sat, 12 Jan 2019 18:13:02 GMT"], ["Expires", "Sat, 12 Jan 2019 18:13:02 GMT"], ["Cache-Control", "private, max-age=0"], ["Content-Length", "165"], ["Server", "UploadServer"], ["Alt-Svc", "quic=\":443\"; ma=2592000; v=\"44,43,39,35\""]], @dumped=false>, @peer_cert=#<OpenSSL::X509::Certificate: subject=#<OpenSSL::X509::Name CN=*.googleapis.com,O=Google LLC,L=Mountain View,ST=California,C=US>, issuer=#<OpenSSL::X509::Name CN=Google Internet Authority G3,O=Google Trust Services,C=US>, serial=#<OpenSSL::BN:0x00005622d1810ae8>, not_before=2018-12-19 08:17:00 UTC, not_after=2019-03-13 08:17:00 UTC>, @http_body=#<HTTP::Message::Body:0x00005622d18685b8 @body="{\n \"error\": {\n  \"errors\": [\n   {\n    \"domain\": \"global\",\n    \"reason\": \"notFound\",\n    \"message\": \"Not Found\"\n   }\n  ],\n  \"code\": 404,\n  \"message\": \"Not Found\"\n }\n}\n", @size=0, @positions=nil, @chunk_size=nil>, @previous=nil>
+Caught error notFound: Not Found
+Error - #<Google::Apis::ClientError: notFound: Not Found status_code: 404 header: #<HTTP::Message::Headers:0x00005622d180aeb8 @http_version="1.1", @body_size=0, @chunked=false, @request_method="GET", @request_uri=#<Addressable::URI:0x2b1168c3563c URI:https://www.googleapis.com/storage/v1/b/secure-zone-sbhacks2019?>, @request_query=nil, @request_absolute_uri=nil, @status_code=404, @reason_phrase="Not Found", @body_type=nil, @body_charset=nil, @body_date=nil, @body_encoding=#<Encoding:UTF-8>, @is_request=false, @header_item=[["X-GUploader-UploadID", "AEnB2Uo5kMNJvL-0k6dNT-W1Ef3xFLq6TTnvIasAe6MMPqSrgHiPcs7stfgydRGDOWo6bmiHaFyyIeTmUdq8_OnL7bHCVVXf9A"], ["Vary", "Origin"], ["Vary", "X-Origin"], ["Content-Type", "application/json; charset=UTF-8"], ["Date", "Sat, 12 Jan 2019 18:13:02 GMT"], ["Expires", "Sat, 12 Jan 2019 18:13:02 GMT"], ["Cache-Control", "private, max-age=0"], ["Content-Length", "165"], ["Server", "UploadServer"], ["Alt-Svc", "quic=\":443\"; ma=2592000; v=\"44,43,39,35\""]], @dumped=false> body: "{\n \"error\": {\n  \"errors\": [\n   {\n    \"domain\": \"global\",\n    \"reason\": \"notFound\",\n    \"message\": \"Not Found\"\n   }\n  ],\n  \"code\": 404,\n  \"message\": \"Not Found\"\n }\n}\n">
+
+Completed 500 Internal Server Error in 931ms (ActiveRecord: 0.8ms)
+
+
+  
+NoMethodError (undefined method `create_file' for nil:NilClass):
+  
+app/models/user.rb:34:in `upload_image'
+app/models/user.rb:64:in `update_image'
+app/controllers/custom_image_upload_controller.rb:6:in `index'
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from instance_eval at /home/dumbooctopus/.rbenv/versions/2.5.3/lib/ruby/gems/2.5.0/gems/activesupport-5.2.2/lib/active_support/lazy_load_hooks.rb:71)
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from instance_eval at /home/dumbooctopus/.rbenv/versions/2.5.3/lib/ruby/gems/2.5.0/gems/activesupport-5.2.2/lib/active_support/lazy_load_hooks.rb:71)
+Started POST "/upload_image" for 127.0.0.1 at 2019-01-12 10:15:44 -0800
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/dumbooctopus/.rbenv/versions/2.5.3/lib/ruby/gems/2.5.0/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+Processing by CustomImageUploadController#index as */*
+  Parameters: {"user_id"=>"1", "picture"=>"data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAUA\nAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO\n    9TXL0Y4OHwAAAABJRU5ErkJggg=="}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/custom_image_upload_controller.rb:20
+Completed 500 Internal Server Error in 179ms (ActiveRecord: 0.7ms)
+
+
+  
+Errno::ENOENT (No such file or directory @ rb_sysopen - uploaded_images/1547316944uploaded_pic.png;):
+  
+app/models/user.rb:28:in `initialize'
+app/models/user.rb:28:in `open'
+app/models/user.rb:28:in `upload_image'
+app/models/user.rb:64:in `update_image'
+app/controllers/custom_image_upload_controller.rb:6:in `index'
+Started POST "/upload_image" for 127.0.0.1 at 2019-01-12 10:16:15 -0800
+Processing by CustomImageUploadController#index as */*
+  Parameters: {"user_id"=>"1", "picture"=>"data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAUA\nAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO\n    9TXL0Y4OHwAAAABJRU5ErkJggg=="}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/custom_image_upload_controller.rb:20
+Sending HTTP get https://www.googleapis.com/storage/v1/b/secure-zone-sbhacks2019?
+404
+#<HTTP::Message:0x00007f8fa436c9d8 @http_header=#<HTTP::Message::Headers:0x00007f8fa436c9b0 @http_version="1.1", @body_size=0, @chunked=false, @request_method="GET", @request_uri=#<Addressable::URI:0x3fc7d21b69ec URI:https://www.googleapis.com/storage/v1/b/secure-zone-sbhacks2019?>, @request_query=nil, @request_absolute_uri=nil, @status_code=404, @reason_phrase="Not Found", @body_type=nil, @body_charset=nil, @body_date=nil, @body_encoding=#<Encoding:UTF-8>, @is_request=false, @header_item=[["X-GUploader-UploadID", "AEnB2UoFzSBF1tfyx-cxgQckQ5WxTWjUGNVTOXsasKfuwNpqYDi4HCdcUjheDjbLtgFrSx37cQLoV_A5Si4RIzfxxQ5ubuNwbQ"], ["Vary", "Origin"], ["Vary", "X-Origin"], ["Content-Type", "application/json; charset=UTF-8"], ["Date", "Sat, 12 Jan 2019 18:16:15 GMT"], ["Expires", "Sat, 12 Jan 2019 18:16:15 GMT"], ["Cache-Control", "private, max-age=0"], ["Content-Length", "165"], ["Server", "UploadServer"], ["Alt-Svc", "quic=\":443\"; ma=2592000; v=\"44,43,39,35\""]], @dumped=false>, @peer_cert=#<OpenSSL::X509::Certificate: subject=#<OpenSSL::X509::Name CN=*.googleapis.com,O=Google LLC,L=Mountain View,ST=California,C=US>, issuer=#<OpenSSL::X509::Name CN=Google Internet Authority G3,O=Google Trust Services,C=US>, serial=#<OpenSSL::BN:0x00007f8fa4486440>, not_before=2018-12-19 08:17:00 UTC, not_after=2019-03-13 08:17:00 UTC>, @http_body=#<HTTP::Message::Body:0x00007f8fa436c938 @body="{\n \"error\": {\n  \"errors\": [\n   {\n    \"domain\": \"global\",\n    \"reason\": \"notFound\",\n    \"message\": \"Not Found\"\n   }\n  ],\n  \"code\": 404,\n  \"message\": \"Not Found\"\n }\n}\n", @size=0, @positions=nil, @chunk_size=nil>, @previous=nil>
+Caught error notFound: Not Found
+Error - #<Google::Apis::ClientError: notFound: Not Found status_code: 404 header: #<HTTP::Message::Headers:0x00007f8fa4485b58 @http_version="1.1", @body_size=0, @chunked=false, @request_method="GET", @request_uri=#<Addressable::URI:0x3fc7d21b69ec URI:https://www.googleapis.com/storage/v1/b/secure-zone-sbhacks2019?>, @request_query=nil, @request_absolute_uri=nil, @status_code=404, @reason_phrase="Not Found", @body_type=nil, @body_charset=nil, @body_date=nil, @body_encoding=#<Encoding:UTF-8>, @is_request=false, @header_item=[["X-GUploader-UploadID", "AEnB2UoFzSBF1tfyx-cxgQckQ5WxTWjUGNVTOXsasKfuwNpqYDi4HCdcUjheDjbLtgFrSx37cQLoV_A5Si4RIzfxxQ5ubuNwbQ"], ["Vary", "Origin"], ["Vary", "X-Origin"], ["Content-Type", "application/json; charset=UTF-8"], ["Date", "Sat, 12 Jan 2019 18:16:15 GMT"], ["Expires", "Sat, 12 Jan 2019 18:16:15 GMT"], ["Cache-Control", "private, max-age=0"], ["Content-Length", "165"], ["Server", "UploadServer"], ["Alt-Svc", "quic=\":443\"; ma=2592000; v=\"44,43,39,35\""]], @dumped=false> body: "{\n \"error\": {\n  \"errors\": [\n   {\n    \"domain\": \"global\",\n    \"reason\": \"notFound\",\n    \"message\": \"Not Found\"\n   }\n  ],\n  \"code\": 404,\n  \"message\": \"Not Found\"\n }\n}\n">
+
+Sending HTTP get https://www.googleapis.com/storage/v1/b/secure-zone-sbhacks2019?
+404
+#<HTTP::Message:0x00005565b5fc9c00 @http_header=#<HTTP::Message::Headers:0x00005565b5fc9bd8 @http_version="1.1", @body_size=0, @chunked=false, @request_method="GET", @request_uri=#<Addressable::URI:0x2ab2dafe5d28 URI:https://www.googleapis.com/storage/v1/b/secure-zone-sbhacks2019?>, @request_query=nil, @request_absolute_uri=nil, @status_code=404, @reason_phrase="Not Found", @body_type=nil, @body_charset=nil, @body_date=nil, @body_encoding=#<Encoding:UTF-8>, @is_request=false, @header_item=[["X-GUploader-UploadID", "AEnB2UqqgoeGHSpyLBE4dSNoPBpF7sq394TnzCJSF0_uNqtvBgmpDtDGX0Y9737j18CY5vuRn5ygaEehaF6fFM4Y-5GGza4jAA"], ["Vary", "Origin"], ["Vary", "X-Origin"], ["Content-Type", "application/json; charset=UTF-8"], ["Date", "Sat, 12 Jan 2019 18:16:16 GMT"], ["Expires", "Sat, 12 Jan 2019 18:16:16 GMT"], ["Cache-Control", "private, max-age=0"], ["Content-Length", "165"], ["Server", "UploadServer"], ["Alt-Svc", "quic=\":443\"; ma=2592000; v=\"44,43,39,35\""]], @dumped=false>, @peer_cert=#<OpenSSL::X509::Certificate: subject=#<OpenSSL::X509::Name CN=*.googleapis.com,O=Google LLC,L=Mountain View,ST=California,C=US>, issuer=#<OpenSSL::X509::Name CN=Google Internet Authority G3,O=Google Trust Services,C=US>, serial=#<OpenSSL::BN:0x00007f8fa45fa268>, not_before=2018-12-19 08:17:00 UTC, not_after=2019-03-13 08:17:00 UTC>, @http_body=#<HTTP::Message::Body:0x00005565b5fc9b38 @body="{\n \"error\": {\n  \"errors\": [\n   {\n    \"domain\": \"global\",\n    \"reason\": \"notFound\",\n    \"message\": \"Not Found\"\n   }\n  ],\n  \"code\": 404,\n  \"message\": \"Not Found\"\n }\n}\n", @size=0, @positions=nil, @chunk_size=nil>, @previous=nil>
+Caught error notFound: Not Found
+Error - #<Google::Apis::ClientError: notFound: Not Found status_code: 404 header: #<HTTP::Message::Headers:0x00007f8fa45f99d0 @http_version="1.1", @body_size=0, @chunked=false, @request_method="GET", @request_uri=#<Addressable::URI:0x2ab2dafe5d28 URI:https://www.googleapis.com/storage/v1/b/secure-zone-sbhacks2019?>, @request_query=nil, @request_absolute_uri=nil, @status_code=404, @reason_phrase="Not Found", @body_type=nil, @body_charset=nil, @body_date=nil, @body_encoding=#<Encoding:UTF-8>, @is_request=false, @header_item=[["X-GUploader-UploadID", "AEnB2UqqgoeGHSpyLBE4dSNoPBpF7sq394TnzCJSF0_uNqtvBgmpDtDGX0Y9737j18CY5vuRn5ygaEehaF6fFM4Y-5GGza4jAA"], ["Vary", "Origin"], ["Vary", "X-Origin"], ["Content-Type", "application/json; charset=UTF-8"], ["Date", "Sat, 12 Jan 2019 18:16:16 GMT"], ["Expires", "Sat, 12 Jan 2019 18:16:16 GMT"], ["Cache-Control", "private, max-age=0"], ["Content-Length", "165"], ["Server", "UploadServer"], ["Alt-Svc", "quic=\":443\"; ma=2592000; v=\"44,43,39,35\""]], @dumped=false> body: "{\n \"error\": {\n  \"errors\": [\n   {\n    \"domain\": \"global\",\n    \"reason\": \"notFound\",\n    \"message\": \"Not Found\"\n   }\n  ],\n  \"code\": 404,\n  \"message\": \"Not Found\"\n }\n}\n">
+
+Completed 500 Internal Server Error in 840ms (ActiveRecord: 0.7ms)
+
+
+  
+NoMethodError (undefined method `create_file' for nil:NilClass):
+  
+app/models/user.rb:34:in `upload_image'
+app/models/user.rb:64:in `update_image'
+app/controllers/custom_image_upload_controller.rb:6:in `index'
+Started POST "/upload_image" for 127.0.0.1 at 2019-01-12 10:25:01 -0800
+Processing by CustomImageUploadController#index as */*
+  Parameters: {"user_id"=>"1", "picture"=>"data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAUA\nAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO\n    9TXL0Y4OHwAAAABJRU5ErkJggg=="}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/custom_image_upload_controller.rb:20
+Completed 500 Internal Server Error in 113ms (ActiveRecord: 0.7ms)
+
+
+  
+RuntimeError (Could not load the default credentials. Browse to
+https://developers.google.com/accounts/docs/application-default-credentials
+for more information
+):
+  
+app/models/user.rb:9:in `storage_bucket'
+app/models/user.rb:32:in `upload_image'
+app/models/user.rb:64:in `update_image'
+app/controllers/custom_image_upload_controller.rb:6:in `index'
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from instance_eval at /home/dumbooctopus/.rbenv/versions/2.5.3/lib/ruby/gems/2.5.0/gems/activesupport-5.2.2/lib/active_support/lazy_load_hooks.rb:71)
+Started POST "/upload_image" for 127.0.0.1 at 2019-01-12 10:25:16 -0800
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/dumbooctopus/.rbenv/versions/2.5.3/lib/ruby/gems/2.5.0/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+Processing by CustomImageUploadController#index as */*
+  Parameters: {"user_id"=>"1", "picture"=>"data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAUA\nAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO\n    9TXL0Y4OHwAAAABJRU5ErkJggg=="}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/custom_image_upload_controller.rb:20
+Completed 500 Internal Server Error in 270ms (ActiveRecord: 0.6ms)
+
+
+  
+RuntimeError (Could not load the default credentials. Browse to
+https://developers.google.com/accounts/docs/application-default-credentials
+for more information
+):
+  
+app/models/user.rb:9:in `storage_bucket'
+app/models/user.rb:32:in `upload_image'
+app/models/user.rb:64:in `update_image'
+app/controllers/custom_image_upload_controller.rb:6:in `index'
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from instance_eval at /home/dumbooctopus/.rbenv/versions/2.5.3/lib/ruby/gems/2.5.0/gems/activesupport-5.2.2/lib/active_support/lazy_load_hooks.rb:71)
+Started POST "/upload_image" for 127.0.0.1 at 2019-01-12 10:50:32 -0800
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/dumbooctopus/.rbenv/versions/2.5.3/lib/ruby/gems/2.5.0/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+Processing by CustomImageUploadController#index as */*
+  Parameters: {"user_id"=>"1", "picture"=>"data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAUA\nAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO\n    9TXL0Y4OHwAAAABJRU5ErkJggg=="}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/custom_image_upload_controller.rb:20
+Sending HTTP get https://www.googleapis.com/storage/v1/b/secure-zone-sbhacks2019?
+404
+#<HTTP::Message:0x00007ff1dd838ef8 @http_header=#<HTTP::Message::Headers:0x00007ff1dd838ed0 @http_version="1.1", @body_size=0, @chunked=false, @request_method="GET", @request_uri=#<Addressable::URI:0x3ff8eec1cd44 URI:https://www.googleapis.com/storage/v1/b/secure-zone-sbhacks2019?>, @request_query=nil, @request_absolute_uri=nil, @status_code=404, @reason_phrase="Not Found", @body_type=nil, @body_charset=nil, @body_date=nil, @body_encoding=#<Encoding:UTF-8>, @is_request=false, @header_item=[["X-GUploader-UploadID", "AEnB2UoociyFRBDkfTa4FLiS-bcaMiGKFuNy3chMWSUqCcvDWt37ookzYEvHT0_p2SJ37L1ywawynohPVVC_s3LcQwisJ0CaQg"], ["Vary", "Origin"], ["Vary", "X-Origin"], ["Content-Type", "application/json; charset=UTF-8"], ["Date", "Sat, 12 Jan 2019 18:50:33 GMT"], ["Expires", "Sat, 12 Jan 2019 18:50:33 GMT"], ["Cache-Control", "private, max-age=0"], ["Content-Length", "165"], ["Server", "UploadServer"], ["Alt-Svc", "quic=\":443\"; ma=2592000; v=\"44,43,39,35\""]], @dumped=false>, @peer_cert=#<OpenSSL::X509::Certificate: subject=#<OpenSSL::X509::Name CN=*.googleapis.com,O=Google LLC,L=Mountain View,ST=California,C=US>, issuer=#<OpenSSL::X509::Name CN=Google Internet Authority G3,O=Google Trust Services,C=US>, serial=#<OpenSSL::BN:0x00007ff1dd812f78>, not_before=2018-12-19 08:17:00 UTC, not_after=2019-03-13 08:17:00 UTC>, @http_body=#<HTTP::Message::Body:0x00007ff1dd838e58 @body="{\n \"error\": {\n  \"errors\": [\n   {\n    \"domain\": \"global\",\n    \"reason\": \"notFound\",\n    \"message\": \"Not Found\"\n   }\n  ],\n  \"code\": 404,\n  \"message\": \"Not Found\"\n }\n}\n", @size=0, @positions=nil, @chunk_size=nil>, @previous=nil>
+Caught error notFound: Not Found
+Error - #<Google::Apis::ClientError: notFound: Not Found status_code: 404 header: #<HTTP::Message::Headers:0x00007ff1dd812410 @http_version="1.1", @body_size=0, @chunked=false, @request_method="GET", @request_uri=#<Addressable::URI:0x3ff8eec1cd44 URI:https://www.googleapis.com/storage/v1/b/secure-zone-sbhacks2019?>, @request_query=nil, @request_absolute_uri=nil, @status_code=404, @reason_phrase="Not Found", @body_type=nil, @body_charset=nil, @body_date=nil, @body_encoding=#<Encoding:UTF-8>, @is_request=false, @header_item=[["X-GUploader-UploadID", "AEnB2UoociyFRBDkfTa4FLiS-bcaMiGKFuNy3chMWSUqCcvDWt37ookzYEvHT0_p2SJ37L1ywawynohPVVC_s3LcQwisJ0CaQg"], ["Vary", "Origin"], ["Vary", "X-Origin"], ["Content-Type", "application/json; charset=UTF-8"], ["Date", "Sat, 12 Jan 2019 18:50:33 GMT"], ["Expires", "Sat, 12 Jan 2019 18:50:33 GMT"], ["Cache-Control", "private, max-age=0"], ["Content-Length", "165"], ["Server", "UploadServer"], ["Alt-Svc", "quic=\":443\"; ma=2592000; v=\"44,43,39,35\""]], @dumped=false> body: "{\n \"error\": {\n  \"errors\": [\n   {\n    \"domain\": \"global\",\n    \"reason\": \"notFound\",\n    \"message\": \"Not Found\"\n   }\n  ],\n  \"code\": 404,\n  \"message\": \"Not Found\"\n }\n}\n">
+
+Completed 500 Internal Server Error in 635ms (ActiveRecord: 0.6ms)
+
+
+  
+NoMethodError (undefined method `create_file' for nil:NilClass):
+  
+app/models/user.rb:31:in `upload_image'
+app/models/user.rb:61:in `update_image'
+app/controllers/custom_image_upload_controller.rb:6:in `index'
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from instance_eval at /home/dumbooctopus/.rbenv/versions/2.5.3/lib/ruby/gems/2.5.0/gems/activesupport-5.2.2/lib/active_support/lazy_load_hooks.rb:71)
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from instance_eval at /home/dumbooctopus/.rbenv/versions/2.5.3/lib/ruby/gems/2.5.0/gems/activesupport-5.2.2/lib/active_support/lazy_load_hooks.rb:71)
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from instance_eval at /home/dumbooctopus/.rbenv/versions/2.5.3/lib/ruby/gems/2.5.0/gems/activesupport-5.2.2/lib/active_support/lazy_load_hooks.rb:71)
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from instance_eval at /home/dumbooctopus/.rbenv/versions/2.5.3/lib/ruby/gems/2.5.0/gems/activesupport-5.2.2/lib/active_support/lazy_load_hooks.rb:71)
+Started POST "/upload_image" for 127.0.0.1 at 2019-01-12 10:59:37 -0800
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/dumbooctopus/.rbenv/versions/2.5.3/lib/ruby/gems/2.5.0/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+Processing by CustomImageUploadController#index as */*
+  Parameters: {"user_id"=>"1", "picture"=>"data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAUA\nAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO\n    9TXL0Y4OHwAAAABJRU5ErkJggg=="}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/custom_image_upload_controller.rb:20
+Sending HTTP get https://www.googleapis.com/storage/v1/b/secure-zone-sbhacks2019?
+404
+#<HTTP::Message:0x00007f1fc99356f8 @http_header=#<HTTP::Message::Headers:0x00007f1fc99356d0 @http_version="1.1", @body_size=0, @chunked=false, @request_method="GET", @request_uri=#<Addressable::URI:0x3f8fe4c9b07c URI:https://www.googleapis.com/storage/v1/b/secure-zone-sbhacks2019?>, @request_query=nil, @request_absolute_uri=nil, @status_code=404, @reason_phrase="Not Found", @body_type=nil, @body_charset=nil, @body_date=nil, @body_encoding=#<Encoding:UTF-8>, @is_request=false, @header_item=[["X-GUploader-UploadID", "AEnB2Up1SET4r_yinCI9oHY68BOIK8o2E-kt80jWOvHA9CwOZEmu1wOB_sT8Vsdycs739he1VTubmlP2vnhV2PnbmVgJdaMrhg"], ["Vary", "Origin"], ["Vary", "X-Origin"], ["Content-Type", "application/json; charset=UTF-8"], ["Date", "Sat, 12 Jan 2019 18:59:38 GMT"], ["Expires", "Sat, 12 Jan 2019 18:59:38 GMT"], ["Cache-Control", "private, max-age=0"], ["Content-Length", "165"], ["Server", "UploadServer"], ["Alt-Svc", "quic=\":443\"; ma=2592000; v=\"44,43,39,35\""]], @dumped=false>, @peer_cert=#<OpenSSL::X509::Certificate: subject=#<OpenSSL::X509::Name CN=*.googleapis.com,O=Google LLC,L=Mountain View,ST=California,C=US>, issuer=#<OpenSSL::X509::Name CN=Google Internet Authority G3,O=Google Trust Services,C=US>, serial=#<OpenSSL::BN:0x00007f1fc9a31890>, not_before=2018-12-19 08:17:00 UTC, not_after=2019-03-13 08:17:00 UTC>, @http_body=#<HTTP::Message::Body:0x00007f1fc9935658 @body="{\n \"error\": {\n  \"errors\": [\n   {\n    \"domain\": \"global\",\n    \"reason\": \"notFound\",\n    \"message\": \"Not Found\"\n   }\n  ],\n  \"code\": 404,\n  \"message\": \"Not Found\"\n }\n}\n", @size=0, @positions=nil, @chunk_size=nil>, @previous=nil>
+Caught error notFound: Not Found
+Error - #<Google::Apis::ClientError: notFound: Not Found status_code: 404 header: #<HTTP::Message::Headers:0x00007f1fc9a30fa8 @http_version="1.1", @body_size=0, @chunked=false, @request_method="GET", @request_uri=#<Addressable::URI:0x3f8fe4c9b07c URI:https://www.googleapis.com/storage/v1/b/secure-zone-sbhacks2019?>, @request_query=nil, @request_absolute_uri=nil, @status_code=404, @reason_phrase="Not Found", @body_type=nil, @body_charset=nil, @body_date=nil, @body_encoding=#<Encoding:UTF-8>, @is_request=false, @header_item=[["X-GUploader-UploadID", "AEnB2Up1SET4r_yinCI9oHY68BOIK8o2E-kt80jWOvHA9CwOZEmu1wOB_sT8Vsdycs739he1VTubmlP2vnhV2PnbmVgJdaMrhg"], ["Vary", "Origin"], ["Vary", "X-Origin"], ["Content-Type", "application/json; charset=UTF-8"], ["Date", "Sat, 12 Jan 2019 18:59:38 GMT"], ["Expires", "Sat, 12 Jan 2019 18:59:38 GMT"], ["Cache-Control", "private, max-age=0"], ["Content-Length", "165"], ["Server", "UploadServer"], ["Alt-Svc", "quic=\":443\"; ma=2592000; v=\"44,43,39,35\""]], @dumped=false> body: "{\n \"error\": {\n  \"errors\": [\n   {\n    \"domain\": \"global\",\n    \"reason\": \"notFound\",\n    \"message\": \"Not Found\"\n   }\n  ],\n  \"code\": 404,\n  \"message\": \"Not Found\"\n }\n}\n">
+
+Completed 500 Internal Server Error in 647ms (ActiveRecord: 0.6ms)
+
+
+  
+NoMethodError (undefined method `create_file' for nil:NilClass):
+  
+app/models/user.rb:31:in `upload_image'
+app/models/user.rb:61:in `update_image'
+app/controllers/custom_image_upload_controller.rb:6:in `index'
+Sending HTTP get https://www.googleapis.com/storage/v1/b/secure-zone-sbhacks2019?
+404
+#<HTTP::Message:0x00007f624c4a0ed8 @http_header=#<HTTP::Message::Headers:0x00007f624c4a0e88 @http_version="1.1", @body_size=0, @chunked=false, @request_method="GET", @request_uri=#<Addressable::URI:0x3fb126250e9c URI:https://www.googleapis.com/storage/v1/b/secure-zone-sbhacks2019?>, @request_query=nil, @request_absolute_uri=nil, @status_code=404, @reason_phrase="Not Found", @body_type=nil, @body_charset=nil, @body_date=nil, @body_encoding=#<Encoding:UTF-8>, @is_request=false, @header_item=[["X-GUploader-UploadID", "AEnB2UpoPoYwGnS78KSp_waS2alWKq8TlGckdO6T1ASF_pfkaqJKcytJHjYILLmyjFpTDo2b7jOU0Ez8tuP4yqnSf0blAhPMGQ"], ["Vary", "Origin"], ["Vary", "X-Origin"], ["Content-Type", "application/json; charset=UTF-8"], ["Date", "Sat, 12 Jan 2019 19:00:29 GMT"], ["Expires", "Sat, 12 Jan 2019 19:00:29 GMT"], ["Cache-Control", "private, max-age=0"], ["Content-Length", "165"], ["Server", "UploadServer"], ["Alt-Svc", "quic=\":443\"; ma=2592000; v=\"44,43,39,35\""]], @dumped=false>, @peer_cert=#<OpenSSL::X509::Certificate: subject=#<OpenSSL::X509::Name CN=*.googleapis.com,O=Google LLC,L=Mountain View,ST=California,C=US>, issuer=#<OpenSSL::X509::Name CN=Google Internet Authority G3,O=Google Trust Services,C=US>, serial=#<OpenSSL::BN:0x00007f624c4986c0>, not_before=2018-12-19 08:17:00 UTC, not_after=2019-03-13 08:17:00 UTC>, @http_body=#<HTTP::Message::Body:0x00007f624c4a0dc0 @body="{\n \"error\": {\n  \"errors\": [\n   {\n    \"domain\": \"global\",\n    \"reason\": \"notFound\",\n    \"message\": \"Not Found\"\n   }\n  ],\n  \"code\": 404,\n  \"message\": \"Not Found\"\n }\n}\n", @size=0, @positions=nil, @chunk_size=nil>, @previous=nil>
+Caught error notFound: Not Found
+Error - #<Google::Apis::ClientError: notFound: Not Found status_code: 404 header: #<HTTP::Message::Headers:0x00007f622c033988 @http_version="1.1", @body_size=0, @chunked=false, @request_method="GET", @request_uri=#<Addressable::URI:0x3fb126250e9c URI:https://www.googleapis.com/storage/v1/b/secure-zone-sbhacks2019?>, @request_query=nil, @request_absolute_uri=nil, @status_code=404, @reason_phrase="Not Found", @body_type=nil, @body_charset=nil, @body_date=nil, @body_encoding=#<Encoding:UTF-8>, @is_request=false, @header_item=[["X-GUploader-UploadID", "AEnB2UpoPoYwGnS78KSp_waS2alWKq8TlGckdO6T1ASF_pfkaqJKcytJHjYILLmyjFpTDo2b7jOU0Ez8tuP4yqnSf0blAhPMGQ"], ["Vary", "Origin"], ["Vary", "X-Origin"], ["Content-Type", "application/json; charset=UTF-8"], ["Date", "Sat, 12 Jan 2019 19:00:29 GMT"], ["Expires", "Sat, 12 Jan 2019 19:00:29 GMT"], ["Cache-Control", "private, max-age=0"], ["Content-Length", "165"], ["Server", "UploadServer"], ["Alt-Svc", "quic=\":443\"; ma=2592000; v=\"44,43,39,35\""]], @dumped=false> body: "{\n \"error\": {\n  \"errors\": [\n   {\n    \"domain\": \"global\",\n    \"reason\": \"notFound\",\n    \"message\": \"Not Found\"\n   }\n  ],\n  \"code\": 404,\n  \"message\": \"Not Found\"\n }\n}\n">
+
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from instance_eval at /home/dumbooctopus/.rbenv/versions/2.5.3/lib/ruby/gems/2.5.0/gems/activesupport-5.2.2/lib/active_support/lazy_load_hooks.rb:71)
+Started POST "/upload_image" for 127.0.0.1 at 2019-01-12 11:14:20 -0800
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/dumbooctopus/.rbenv/versions/2.5.3/lib/ruby/gems/2.5.0/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+Processing by CustomImageUploadController#index as */*
+  Parameters: {"user_id"=>"1", "picture"=>"data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAUA\nAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO\n    9TXL0Y4OHwAAAABJRU5ErkJggg=="}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/custom_image_upload_controller.rb:20
+Completed 500 Internal Server Error in 129ms (ActiveRecord: 0.6ms)
+
+
+  
+TypeError (no implicit conversion of nil into String):
+  
+app/models/user.rb:9:in `storage_bucket'
+app/models/user.rb:31:in `upload_image'
+app/models/user.rb:61:in `update_image'
+app/controllers/custom_image_upload_controller.rb:6:in `index'
+Started POST "/upload_image" for 127.0.0.1 at 2019-01-12 11:14:52 -0800
+Processing by CustomImageUploadController#index as */*
+  Parameters: {"user_id"=>"1", "picture"=>"data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAUA\nAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO\n    9TXL0Y4OHwAAAABJRU5ErkJggg=="}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/home/dumbooctopus/Computer_Programs/Ruby On Rails/secure-zone/server/app/models/user.rb:64: unterminated string meets end of file
+/home/dumbooctopus/Computer_Programs/Ruby On Rails/secure-zone/server/app/models/user.rb:64: syntax error, unexpected end-of-input, expecting keyword_end):
+  
+app/models/user.rb:64: unterminated string meets end of file
+app/models/user.rb:64: syntax error, unexpected end-of-input, expecting keyword_end
+app/controllers/custom_image_upload_controller.rb:20:in `set_user'
+Started POST "/upload_image" for 127.0.0.1 at 2019-01-12 11:15:04 -0800
+Processing by CustomImageUploadController#index as */*
+  Parameters: {"user_id"=>"1", "picture"=>"data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAUA\nAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO\n    9TXL0Y4OHwAAAABJRU5ErkJggg=="}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/custom_image_upload_controller.rb:20
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 1.2ms)
+
+
+  
+RuntimeError (The keyfile 'key: "AIzaSyCfyiI0PVoO4sygEXZ6ajRFzm7Sn_vy15Y"' is not a valid file.):
+  
+app/models/user.rb:9:in `storage_bucket'
+app/models/user.rb:31:in `upload_image'
+app/models/user.rb:61:in `update_image'
+app/controllers/custom_image_upload_controller.rb:6:in `index'
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from instance_eval at /home/dumbooctopus/.rbenv/versions/2.5.3/lib/ruby/gems/2.5.0/gems/activesupport-5.2.2/lib/active_support/lazy_load_hooks.rb:71)
+Started POST "/upload_image" for 127.0.0.1 at 2019-01-12 11:16:16 -0800
+Processing by CustomImageUploadController#index as */*
+  Parameters: {"user_id"=>"1", "picture"=>"data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAUA\nAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO\n    9TXL0Y4OHwAAAABJRU5ErkJggg=="}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/custom_image_upload_controller.rb:20
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.7ms)
+
+
+  
+TypeError (no implicit conversion of nil into String):
+  
+app/models/user.rb:9:in `storage_bucket'
+app/models/user.rb:31:in `upload_image'
+app/models/user.rb:61:in `update_image'
+app/controllers/custom_image_upload_controller.rb:6:in `index'
+Started POST "/upload_image" for 127.0.0.1 at 2019-01-12 11:16:51 -0800
+Processing by CustomImageUploadController#index as */*
+  Parameters: {"user_id"=>"1", "picture"=>"data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAUA\nAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO\n    9TXL0Y4OHwAAAABJRU5ErkJggg=="}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/custom_image_upload_controller.rb:20
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.7ms)
+
+
+  
+TypeError (no implicit conversion of nil into String):
+  
+app/models/user.rb:9:in `storage_bucket'
+app/models/user.rb:32:in `upload_image'
+app/models/user.rb:62:in `update_image'
+app/controllers/custom_image_upload_controller.rb:6:in `index'
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from instance_eval at /home/dumbooctopus/.rbenv/versions/2.5.3/lib/ruby/gems/2.5.0/gems/activesupport-5.2.2/lib/active_support/lazy_load_hooks.rb:71)
