@@ -5,9 +5,9 @@
 #   git config --global core.excludesfile '~/.gitignore_global'
 
 # Ignore bundler config.
-/.bundle
-config/secrets.yml
-config/gc_key.json
+server/.bundle
+server/config/secrets.yml
+server/config/gc_key.json
 
 # Ignore all logfiles and tempfiles.
 /log/*
@@ -22,8 +22,8 @@ config/gc_key.json
 /node_modules
 /yarn-error.log
 
-/public/assets
-.byebug_history
+server/public/assets
+server/.byebug_history
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
