@@ -27,3 +27,6 @@ server/.byebug_history
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+
+#Ignore secrets.json file
+secrets.json
