@@ -3,6 +3,7 @@ class CustomImageUploadController < ApplicationController
 
     def index
         @user.picture = params[:picture]
+        @user.update_image
     end
 
     def show
