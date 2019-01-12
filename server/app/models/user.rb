@@ -1,3 +1,3 @@
 class User < ApplicationRecord
-    has_many_attached :images
+    mount_base64_uploader :picture, PictureUploader
 end
