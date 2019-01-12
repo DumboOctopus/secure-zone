@@ -10,17 +10,17 @@ server/config/secrets.yml
 server/config/gc_key.json
 
 # Ignore all logfiles and tempfiles.
-/log/*
-/tmp/*
-!/log/.keep
-!/tmp/.keep
+server/log/*
+server/tmp/*
+!server/log/.keep
+!server/tmp/.keep
 
 # Ignore uploaded files in development
-/storage/*
-!/storage/.keep
+server/storage/*
+!server/storage/.keep
 
-/node_modules
-/yarn-error.log
+server/node_modules
+server/yarn-error.log
 
 server/public/assets
 server/.byebug_history
@@ -30,3 +30,5 @@ server/.byebug_history
 
 #Ignore secrets.json file
 secrets.json
+server/config/master.key
+#22362523d10614b43845a2cc286098417fe0b95f

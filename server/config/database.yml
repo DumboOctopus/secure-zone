@@ -10,16 +10,15 @@
 #   https://dev.mysql.com/doc/refman/5.7/en/password-hashing.html
 #
 default: &default
-  adapter: mysql2
+  adapter: sqlite3
   encoding: utf8
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: root
-  password:
-  socket: /var/run/mysqld/mysqld.sock
+  database: db/development.sqlite3
 
 development:
-  <<: *default
-  database: secure-zone_development
+  adapter: sqlite3
+  encoding: utf8
+  database: db/development.sqlite3
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
