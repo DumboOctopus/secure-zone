@@ -10,20 +10,20 @@ server/config/secrets.yml
 server/config/gc_key.json
 
 # Ignore all logfiles and tempfiles.
-/log/*
-/tmp/*
-!/log/.keep
-!/tmp/.keep
+server/log/*
+server/tmp/*
+!server/log/.keep
+!server/tmp/.keep
 
 # Ignore uploaded files in development
-/storage/*
-!/storage/.keep
+server/storage/*
+!server/storage/.keep
 
-/node_modules
-/yarn-error.log
+server/node_modules
+server/yarn-error.log
 
 server/public/assets
 server/.byebug_history
 
 # Ignore master key for decrypting credentials and more.
-/config/master.key
+server/config/master.key
