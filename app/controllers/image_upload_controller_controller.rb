@@ -1,0 +1,2 @@
+class ImageUploadControllerController < ApplicationController
+end
