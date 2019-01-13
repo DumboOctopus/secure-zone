@@ -49,7 +49,7 @@ auth_token = data_hash['auth_token']   # Your Auth Token from www.twilio.com/con
 
 @client = Twilio::REST::Client.new account_sid, auth_token
 message = @client.messages.create(
-    body: "Warning, Angela Wang nearby",
+    body: "Warning, " + person.to_s + " nearby",
     to: "+19095695446",    # Replace with your phone number
     from: "+12138631028")  # Replace with your Twilio number
 
