@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_12_170911) do
+ActiveRecord::Schema.define(version: 2019_01_13_003242) do
+
+  create_table "safe_words", force: :cascade do |t|
+    t.integer "degree"
+    t.integer "user_id"
+  end
+
+  create_table "time_to_responds", force: :cascade do |t|
+    t.integer "time"
+    t.integer "degree"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "first_name"

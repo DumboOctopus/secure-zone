@@ -4,6 +4,8 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.string :first_name
       t.string :last_name
       t.integer :phone
+      t.string :gender
+      t.string :emergency_contact
 
       t.timestamps
     end

@@ -2933,3 +2933,73 @@ true by adding the following to your application.rb file:
 
   Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
  (called from instance_eval at /home/dumbooctopus/.rbenv/versions/2.5.3/lib/ruby/gems/2.5.0/gems/activesupport-5.2.2/lib/active_support/lazy_load_hooks.rb:71)
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from load at /home/dumbooctopus/.rbenv/versions/2.5.3/bin/rake:23)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/dumbooctopus/.rbenv/versions/2.5.3/bin/rake:23
+Migrating to CreateSafeWord (20190113002503)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /home/dumbooctopus/.rbenv/versions/2.5.3/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/migrate/20190113002503_create_safe_word.rb:3
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "safe_words" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "degree" integer, "user_id" integer)[0m
+  ↳ db/migrate/20190113002503_create_safe_word.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20190113002503"]]
+  ↳ /home/dumbooctopus/.rbenv/versions/2.5.3/bin/rake:23
+  [1m[35m (8.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /home/dumbooctopus/.rbenv/versions/2.5.3/bin/rake:23
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /home/dumbooctopus/.rbenv/versions/2.5.3/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /home/dumbooctopus/.rbenv/versions/2.5.3/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /home/dumbooctopus/.rbenv/versions/2.5.3/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/dumbooctopus/.rbenv/versions/2.5.3/bin/rake:23
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from load at /home/dumbooctopus/.rbenv/versions/2.5.3/bin/rake:23)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/dumbooctopus/.rbenv/versions/2.5.3/bin/rake:23
+Migrating to CreateTimeToRespond (20190113003242)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /home/dumbooctopus/.rbenv/versions/2.5.3/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/migrate/20190113003242_create_time_to_respond.rb:3
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "time_to_responds" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "time" integer, "degree" integer)[0m
+  ↳ db/migrate/20190113003242_create_time_to_respond.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20190113003242"]]
+  ↳ /home/dumbooctopus/.rbenv/versions/2.5.3/bin/rake:23
+  [1m[35m (15.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /home/dumbooctopus/.rbenv/versions/2.5.3/bin/rake:23
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /home/dumbooctopus/.rbenv/versions/2.5.3/bin/rake:23
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /home/dumbooctopus/.rbenv/versions/2.5.3/bin/rake:23
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /home/dumbooctopus/.rbenv/versions/2.5.3/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/dumbooctopus/.rbenv/versions/2.5.3/bin/rake:23
