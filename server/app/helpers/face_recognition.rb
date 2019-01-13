@@ -6,6 +6,7 @@ module FaceRecognition
   file = File.read('../../../../secrets.json') #file in secure-zone
   data_hash = JSON.parse(file)
   file  = File.read('../../../../personIds.json') #file in secure-zone
+  personIds = JSON.parse(file)
   
   uri = URI('https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect')
   uri.query = URI.encode_www_form({
@@ -40,7 +41,7 @@ request.body = "{'personGroupId': 'names', 'faceIds': ['" + id + "'], 'maxNumOfC
 response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') do |http|
     http.request(request)
 end
-  return JSON.parse(response.body)[0]['candidates'][0]['personId']
+  return personIds.key(JSON.parse(response.body)[0]['candidates'][0]['personId'])
 end
   
 end
