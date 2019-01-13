@@ -2,10 +2,7 @@ require 'net/http'
 require 'json'
 require 'twilio-ruby'
 
-
-
-module FaceRecognition
-  def check_face (input_url)
+def face(input_url)
   file = File.read('../../../../secrets.json') #file in secure-zone
   data_hash = JSON.parse(file)
   file  = File.read('../../../../personIds.json') #file in secure-zone
@@ -52,11 +49,10 @@ auth_token = data_hash['auth_token']   # Your Auth Token from www.twilio.com/con
 
 @client = Twilio::REST::Client.new account_sid, auth_token
 message = @client.messages.create(
-    body: "Warning, " + person + " nearby",
+    body: "Warning, " + person.to_s + " nearby",
     to: "+19095695446",    # Replace with your phone number
     from: "+12138631028")  # Replace with your Twilio number
 
 puts message.sid
-end
 end
 end
