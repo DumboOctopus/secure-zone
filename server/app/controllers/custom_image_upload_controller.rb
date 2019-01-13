@@ -6,6 +6,9 @@ class CustomImageUploadController < ApplicationController
           entry.user = @user
           entry.picture = user_params[:picture]
         end
+        e.save!
+        
+        @entry = e
     end
 
     def show

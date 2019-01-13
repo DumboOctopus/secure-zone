@@ -3031,3 +3031,669 @@ true by adding the following to your application.rb file:
 
   Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
  (called from instance_eval at /home/dumbooctopus/.rbenv/versions/2.5.3/lib/ruby/gems/2.5.0/gems/activesupport-5.2.2/lib/active_support/lazy_load_hooks.rb:71)
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from instance_eval at /home/dumbooctopus/.rbenv/versions/2.5.3/lib/ruby/gems/2.5.0/gems/activesupport-5.2.2/lib/active_support/lazy_load_hooks.rb:71)
+Started GET "/" for 127.0.0.1 at 2019-01-12 20:46:44 -0800
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/dumbooctopus/.rbenv/versions/2.5.3/lib/ruby/gems/2.5.0/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate RAILS_ENV=development
+
+):
+  
+activerecord (5.2.2) lib/active_record/migration.rb:579:in `check_pending!'
+activerecord (5.2.2) lib/active_record/migration.rb:556:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.2) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.2) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.2) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/user/1" for 127.0.0.1 at 2019-01-12 20:46:48 -0800
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/dumbooctopus/.rbenv/versions/2.5.3/lib/ruby/gems/2.5.0/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate RAILS_ENV=development
+
+):
+  
+activerecord (5.2.2) lib/active_record/migration.rb:579:in `check_pending!'
+activerecord (5.2.2) lib/active_record/migration.rb:556:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.2) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.2) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.2) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/user/new" for 127.0.0.1 at 2019-01-12 20:46:51 -0800
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/dumbooctopus/.rbenv/versions/2.5.3/lib/ruby/gems/2.5.0/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate RAILS_ENV=development
+
+):
+  
+activerecord (5.2.2) lib/active_record/migration.rb:579:in `check_pending!'
+activerecord (5.2.2) lib/active_record/migration.rb:556:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.2) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.2) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.2) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from instance_eval at /home/dumbooctopus/.rbenv/versions/2.5.3/lib/ruby/gems/2.5.0/gems/activesupport-5.2.2/lib/active_support/lazy_load_hooks.rb:71)
+Started GET "/user/1" for 127.0.0.1 at 2019-01-12 21:07:54 -0800
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/dumbooctopus/.rbenv/versions/2.5.3/lib/ruby/gems/2.5.0/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate RAILS_ENV=development
+
+):
+  
+activerecord (5.2.2) lib/active_record/migration.rb:579:in `check_pending!'
+activerecord (5.2.2) lib/active_record/migration.rb:556:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.2) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.2) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.2) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from instance_eval at /home/dumbooctopus/.rbenv/versions/2.5.3/lib/ruby/gems/2.5.0/gems/activesupport-5.2.2/lib/active_support/lazy_load_hooks.rb:71)
+Started POST "/upload_image" for 127.0.0.1 at 2019-01-12 21:32:14 -0800
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/dumbooctopus/.rbenv/versions/2.5.3/lib/ruby/gems/2.5.0/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate RAILS_ENV=development
+
+):
+  
+activerecord (5.2.2) lib/active_record/migration.rb:579:in `check_pending!'
+activerecord (5.2.2) lib/active_record/migration.rb:556:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.2) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.2) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.2) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from load at /home/dumbooctopus/.rbenv/versions/2.5.3/bin/rake:23)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/dumbooctopus/.rbenv/versions/2.5.3/bin/rake:23
+Migrating to CreateEntries (20190113040020)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /home/dumbooctopus/.rbenv/versions/2.5.3/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/migrate/20190113040020_create_entries.rb:3
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "entries" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "picture_url" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20190113040020_create_entries.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20190113040020"]]
+  ↳ /home/dumbooctopus/.rbenv/versions/2.5.3/bin/rake:23
+  [1m[35m (11.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /home/dumbooctopus/.rbenv/versions/2.5.3/bin/rake:23
+  [1m[36mActiveRecord::InternalMetadata Load (1.0ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /home/dumbooctopus/.rbenv/versions/2.5.3/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /home/dumbooctopus/.rbenv/versions/2.5.3/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /home/dumbooctopus/.rbenv/versions/2.5.3/bin/rake:23
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/dumbooctopus/.rbenv/versions/2.5.3/bin/rake:23
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from instance_eval at /home/dumbooctopus/.rbenv/versions/2.5.3/lib/ruby/gems/2.5.0/gems/activesupport-5.2.2/lib/active_support/lazy_load_hooks.rb:71)
+Started POST "/upload_image" for 127.0.0.1 at 2019-01-12 21:32:46 -0800
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/dumbooctopus/.rbenv/versions/2.5.3/lib/ruby/gems/2.5.0/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+  
+AbstractController::ActionNotFound (The action 'upload_images' could not be found for CustomImageUploadController):
+  
+actionpack (5.2.2) lib/abstract_controller/base.rb:129:in `process'
+actionview (5.2.2) lib/action_view/rendering.rb:32:in `process'
+actionpack (5.2.2) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (5.2.2) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (5.2.2) lib/action_dispatch/routing/route_set.rb:52:in `dispatch'
+actionpack (5.2.2) lib/action_dispatch/routing/route_set.rb:34:in `serve'
+actionpack (5.2.2) lib/action_dispatch/journey/router.rb:52:in `block in serve'
+actionpack (5.2.2) lib/action_dispatch/journey/router.rb:35:in `each'
+actionpack (5.2.2) lib/action_dispatch/journey/router.rb:35:in `serve'
+actionpack (5.2.2) lib/action_dispatch/routing/route_set.rb:840:in `call'
+rack (2.0.6) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.0.6) lib/rack/etag.rb:25:in `call'
+rack (2.0.6) lib/rack/conditional_get.rb:38:in `call'
+rack (2.0.6) lib/rack/head.rb:12:in `call'
+actionpack (5.2.2) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.0.6) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.6) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/cookies.rb:670:in `call'
+activerecord (5.2.2) lib/active_record/migration.rb:559:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.2) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.2) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.2) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from instance_eval at /home/dumbooctopus/.rbenv/versions/2.5.3/lib/ruby/gems/2.5.0/gems/activesupport-5.2.2/lib/active_support/lazy_load_hooks.rb:71)
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from instance_eval at /home/dumbooctopus/.rbenv/versions/2.5.3/lib/ruby/gems/2.5.0/gems/activesupport-5.2.2/lib/active_support/lazy_load_hooks.rb:71)
+Started POST "/upload_image" for 127.0.0.1 at 2019-01-12 21:33:18 -0800
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/dumbooctopus/.rbenv/versions/2.5.3/lib/ruby/gems/2.5.0/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+Processing by CustomImageUploadController#upload_image as */*
+  Parameters: {"user_id"=>"1", "picture"=>" data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAA7EAAAOxAGVKw4bAAADt0lEQVRYha2Xz28bVRDHP OuE1VRpZYW5JIa4kSRXFUEAfEGNUhc4AIScKhXQqo48idUHBKh9FYk4AQSdzjUIaHpid4QElA2pJWagw2oJCJWnUuDEI1o LHDYfs2u3673rj4e7Lfd3Zm3rw339mV28F1HZcZ kVHm/ja4PXCuz3tPgrOpa4f50lc8XB8XaSCi4j0FbjNet9Jm8A1qTPODCKCc5dNNvAZ52BVuM8ue w ROAnqIkXBTZwAPqpQkWmGeM5NlljVRu59o9QpiYeE8wgUrD4AoCpAsC3wae5TrdpofxLXS6xFMyxpbcSfEeb/KLfA7DDFtf0fT5Wj6 CT1BVOwEIq6Cq3ORKbhK NvB1MUrmql5MJGL4eLAzvMyL8rZVZcf8iFfhJlcggLOF81bwjjajC2jsAf5ilz3ucSeFzwqeSMBUwSArCT927r4uPjjjOhM8j0iBlWAhwfcKDiDafSixnfraYFJmOUGFx2Qiwd/VX2mzTpHhnvzT8mpq4NQKxAObMs7yFpf1AmP6LDXxOESRVV3kNtd5TeY5zJGefB6sBLr7/IRUqGiNDXw2dQ0QQClRpSxTALl8L1iNWZFp6nKJV QdHmUcAFfqMQt9sOZFK3l8XwlAss9DoyLhzvbhUIw5yebzdCI1gXifA/ygn2N2Frc5CJ nE6mXMN7HR3WUn/mGEtVwelGMLmlHmwxzpCdvkKUTVhuuBAuRwXHGOCMvcZTHrQvV0SZ3aDHE4Z78T/q1pRNx/85SMMc2LQCOMcqb8iEihagdD EwzIh1TEOM4DCUyw8xwjX9IPSv /4NHFc8rupFAKblHNv8iB8MTgdcKSf8d09EpyxTlLTKHn8wySyb3Bi4DsT9d8OBsGf/5HdEClSw570rdTbUDJ50HejN7/tPTaAsU4nRKSJRIhDvc409mKYDNr8UzOGKxyQvWMHDZ2NBu2HWBqEDyzpvCVKYaA52tD1QHVDVxGYzx7HBun45UB3oqwI39As2dC3UCU3qBEBbb/EPf6fyJ U0JznNnu5GOoCGL6k7bEUxUmeBCf6dfpa4zUYnVoIFlnWeNusW373Ls4XzPMMb0f9aYnJmJGCCQ9ghJaocY5RJZq33hW4 DfEkThHaG1hHEA9ukK8T2X0eT4Jg359RR sS3td7AHRosaoNvMJ7ANbtNWvLOo8rHqd46kAfNsaPmUFWBX5jK/XbL0sntjXs8xJVXLzc1zDjx1QhSuD/fnRm9XkWzAxyOtrC18sPHbj7u6AfuOLxH RafRbJ4I28AAAAAElFTkSuQmCC"}
+  Rendering custom_image_upload/upload_image.json.jbuilder
+  Rendered custom_image_upload/upload_image.json.jbuilder (9.7ms)
+Completed 500 Internal Server Error in 365ms (ActiveRecord: 1.1ms)
+
+
+  
+ActionView::Template::Error (undefined method `picture' for nil:NilClass):
+    1: json.extract! @user, :picture
+  
+app/views/custom_image_upload/upload_image.json.jbuilder:1:in `_app_views_custom_image_upload_upload_image_json_jbuilder__1431357505654046247_69909895755540'
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from instance_eval at /home/dumbooctopus/.rbenv/versions/2.5.3/lib/ruby/gems/2.5.0/gems/activesupport-5.2.2/lib/active_support/lazy_load_hooks.rb:71)
+Started POST "/upload_image" for 127.0.0.1 at 2019-01-12 21:34:43 -0800
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/dumbooctopus/.rbenv/versions/2.5.3/lib/ruby/gems/2.5.0/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+Processing by CustomImageUploadController#upload_image as */*
+  Parameters: {"user_id"=>"1", "picture"=>" data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAA7EAAAOxAGVKw4bAAADt0lEQVRYha2Xz28bVRDHP OuE1VRpZYW5JIa4kSRXFUEAfEGNUhc4AIScKhXQqo48idUHBKh9FYk4AQSdzjUIaHpid4QElA2pJWagw2oJCJWnUuDEI1o LHDYfs2u3673rj4e7Lfd3Zm3rw339mV28F1HZcZ kVHm/ja4PXCuz3tPgrOpa4f50lc8XB8XaSCi4j0FbjNet9Jm8A1qTPODCKCc5dNNvAZ52BVuM8ue w ROAnqIkXBTZwAPqpQkWmGeM5NlljVRu59o9QpiYeE8wgUrD4AoCpAsC3wae5TrdpofxLXS6xFMyxpbcSfEeb/KLfA7DDFtf0fT5Wj6 CT1BVOwEIq6Cq3ORKbhK NvB1MUrmql5MJGL4eLAzvMyL8rZVZcf8iFfhJlcggLOF81bwjjajC2jsAf5ilz3ucSeFzwqeSMBUwSArCT927r4uPjjjOhM8j0iBlWAhwfcKDiDafSixnfraYFJmOUGFx2Qiwd/VX2mzTpHhnvzT8mpq4NQKxAObMs7yFpf1AmP6LDXxOESRVV3kNtd5TeY5zJGefB6sBLr7/IRUqGiNDXw2dQ0QQClRpSxTALl8L1iNWZFp6nKJV QdHmUcAFfqMQt9sOZFK3l8XwlAss9DoyLhzvbhUIw5yebzdCI1gXifA/ygn2N2Frc5CJ nE6mXMN7HR3WUn/mGEtVwelGMLmlHmwxzpCdvkKUTVhuuBAuRwXHGOCMvcZTHrQvV0SZ3aDHE4Z78T/q1pRNx/85SMMc2LQCOMcqb8iEihagdD EwzIh1TEOM4DCUyw8xwjX9IPSv /4NHFc8rupFAKblHNv8iB8MTgdcKSf8d09EpyxTlLTKHn8wySyb3Bi4DsT9d8OBsGf/5HdEClSw570rdTbUDJ50HejN7/tPTaAsU4nRKSJRIhDvc409mKYDNr8UzOGKxyQvWMHDZ2NBu2HWBqEDyzpvCVKYaA52tD1QHVDVxGYzx7HBun45UB3oqwI39As2dC3UCU3qBEBbb/EPf6fyJ U0JznNnu5GOoCGL6k7bEUxUmeBCf6dfpa4zUYnVoIFlnWeNusW373Ls4XzPMMb0f9aYnJmJGCCQ9ghJaocY5RJZq33hW4 DfEkThHaG1hHEA9ukK8T2X0eT4Jg359RR sS3td7AHRosaoNvMJ7ANbtNWvLOo8rHqd46kAfNsaPmUFWBX5jK/XbL0sntjXs8xJVXLzc1zDjx1QhSuD/fnRm9XkWzAxyOtrC18sPHbj7u6AfuOLxH RafRbJ4I28AAAAAElFTkSuQmCC"}
+  Rendering custom_image_upload/upload_image.json.jbuilder
+  Rendered custom_image_upload/upload_image.json.jbuilder (2.5ms)
+Completed 200 OK in 325ms (Views: 13.0ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/upload_image" for 127.0.0.1 at 2019-01-12 21:42:19 -0800
+Processing by CustomImageUploadController#upload_image as */*
+  Parameters: {"user_id"=>"1", "picture"=>" data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAA7EAAAOxAGVKw4bAAADt0lEQVRYha2Xz28bVRDHP OuE1VRpZYW5JIa4kSRXFUEAfEGNUhc4AIScKhXQqo48idUHBKh9FYk4AQSdzjUIaHpid4QElA2pJWagw2oJCJWnUuDEI1o LHDYfs2u3673rj4e7Lfd3Zm3rw339mV28F1HZcZ kVHm/ja4PXCuz3tPgrOpa4f50lc8XB8XaSCi4j0FbjNet9Jm8A1qTPODCKCc5dNNvAZ52BVuM8ue w ROAnqIkXBTZwAPqpQkWmGeM5NlljVRu59o9QpiYeE8wgUrD4AoCpAsC3wae5TrdpofxLXS6xFMyxpbcSfEeb/KLfA7DDFtf0fT5Wj6 CT1BVOwEIq6Cq3ORKbhK NvB1MUrmql5MJGL4eLAzvMyL8rZVZcf8iFfhJlcggLOF81bwjjajC2jsAf5ilz3ucSeFzwqeSMBUwSArCT927r4uPjjjOhM8j0iBlWAhwfcKDiDafSixnfraYFJmOUGFx2Qiwd/VX2mzTpHhnvzT8mpq4NQKxAObMs7yFpf1AmP6LDXxOESRVV3kNtd5TeY5zJGefB6sBLr7/IRUqGiNDXw2dQ0QQClRpSxTALl8L1iNWZFp6nKJV QdHmUcAFfqMQt9sOZFK3l8XwlAss9DoyLhzvbhUIw5yebzdCI1gXifA/ygn2N2Frc5CJ nE6mXMN7HR3WUn/mGEtVwelGMLmlHmwxzpCdvkKUTVhuuBAuRwXHGOCMvcZTHrQvV0SZ3aDHE4Z78T/q1pRNx/85SMMc2LQCOMcqb8iEihagdD EwzIh1TEOM4DCUyw8xwjX9IPSv /4NHFc8rupFAKblHNv8iB8MTgdcKSf8d09EpyxTlLTKHn8wySyb3Bi4DsT9d8OBsGf/5HdEClSw570rdTbUDJ50HejN7/tPTaAsU4nRKSJRIhDvc409mKYDNr8UzOGKxyQvWMHDZ2NBu2HWBqEDyzpvCVKYaA52tD1QHVDVxGYzx7HBun45UB3oqwI39As2dC3UCU3qBEBbb/EPf6fyJ U0JznNnu5GOoCGL6k7bEUxUmeBCf6dfpa4zUYnVoIFlnWeNusW373Ls4XzPMMb0f9aYnJmJGCCQ9ghJaocY5RJZq33hW4 DfEkThHaG1hHEA9ukK8T2X0eT4Jg359RR sS3td7AHRosaoNvMJ7ANbtNWvLOo8rHqd46kAfNsaPmUFWBX5jK/XbL0sntjXs8xJVXLzc1zDjx1QhSuD/fnRm9XkWzAxyOtrC18sPHbj7u6AfuOLxH RafRbJ4I28AAAAAElFTkSuQmCC"}
+  Rendering custom_image_upload/upload_image.json.jbuilder
+  Rendered custom_image_upload/upload_image.json.jbuilder (1.1ms)
+Completed 200 OK in 22ms (Views: 12.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/upload_image" for 127.0.0.1 at 2019-01-12 21:42:36 -0800
+Processing by CustomImageUploadController#upload_image as */*
+  Parameters: {"user_id"=>"1", "picture"=>" data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAA7EAAAOxAGVKw4bAAADt0lEQVRYha2Xz28bVRDHP OuE1VRpZYW5JIa4kSRXFUEAfEGNUhc4AIScKhXQqo48idUHBKh9FYk4AQSdzjUIaHpid4QElA2pJWagw2oJCJWnUuDEI1o LHDYfs2u3673rj4e7Lfd3Zm3rw339mV28F1HZcZ kVHm/ja4PXCuz3tPgrOpa4f50lc8XB8XaSCi4j0FbjNet9Jm8A1qTPODCKCc5dNNvAZ52BVuM8ue w ROAnqIkXBTZwAPqpQkWmGeM5NlljVRu59o9QpiYeE8wgUrD4AoCpAsC3wae5TrdpofxLXS6xFMyxpbcSfEeb/KLfA7DDFtf0fT5Wj6 CT1BVOwEIq6Cq3ORKbhK NvB1MUrmql5MJGL4eLAzvMyL8rZVZcf8iFfhJlcggLOF81bwjjajC2jsAf5ilz3ucSeFzwqeSMBUwSArCT927r4uPjjjOhM8j0iBlWAhwfcKDiDafSixnfraYFJmOUGFx2Qiwd/VX2mzTpHhnvzT8mpq4NQKxAObMs7yFpf1AmP6LDXxOESRVV3kNtd5TeY5zJGefB6sBLr7/IRUqGiNDXw2dQ0QQClRpSxTALl8L1iNWZFp6nKJV QdHmUcAFfqMQt9sOZFK3l8XwlAss9DoyLhzvbhUIw5yebzdCI1gXifA/ygn2N2Frc5CJ nE6mXMN7HR3WUn/mGEtVwelGMLmlHmwxzpCdvkKUTVhuuBAuRwXHGOCMvcZTHrQvV0SZ3aDHE4Z78T/q1pRNx/85SMMc2LQCOMcqb8iEihagdD EwzIh1TEOM4DCUyw8xwjX9IPSv /4NHFc8rupFAKblHNv8iB8MTgdcKSf8d09EpyxTlLTKHn8wySyb3Bi4DsT9d8OBsGf/5HdEClSw570rdTbUDJ50HejN7/tPTaAsU4nRKSJRIhDvc409mKYDNr8UzOGKxyQvWMHDZ2NBu2HWBqEDyzpvCVKYaA52tD1QHVDVxGYzx7HBun45UB3oqwI39As2dC3UCU3qBEBbb/EPf6fyJ U0JznNnu5GOoCGL6k7bEUxUmeBCf6dfpa4zUYnVoIFlnWeNusW373Ls4XzPMMb0f9aYnJmJGCCQ9ghJaocY5RJZq33hW4 DfEkThHaG1hHEA9ukK8T2X0eT4Jg359RR sS3td7AHRosaoNvMJ7ANbtNWvLOo8rHqd46kAfNsaPmUFWBX5jK/XbL0sntjXs8xJVXLzc1zDjx1QhSuD/fnRm9XkWzAxyOtrC18sPHbj7u6AfuOLxH RafRbJ4I28AAAAAElFTkSuQmCC"}
+  Rendering custom_image_upload/upload_image.json.jbuilder
+  Rendered custom_image_upload/upload_image.json.jbuilder (1.0ms)
+Completed 200 OK in 38ms (Views: 19.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/upload_image" for 127.0.0.1 at 2019-01-12 21:43:48 -0800
+Processing by CustomImageUploadController#upload_image as */*
+  Parameters: {"user_id"=>"1", "picture"=>" data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAA7EAAAOxAGVKw4bAAADt0lEQVRYha2Xz28bVRDHP OuE1VRpZYW5JIa4kSRXFUEAfEGNUhc4AIScKhXQqo48idUHBKh9FYk4AQSdzjUIaHpid4QElA2pJWagw2oJCJWnUuDEI1o LHDYfs2u3673rj4e7Lfd3Zm3rw339mV28F1HZcZ kVHm/ja4PXCuz3tPgrOpa4f50lc8XB8XaSCi4j0FbjNet9Jm8A1qTPODCKCc5dNNvAZ52BVuM8ue w ROAnqIkXBTZwAPqpQkWmGeM5NlljVRu59o9QpiYeE8wgUrD4AoCpAsC3wae5TrdpofxLXS6xFMyxpbcSfEeb/KLfA7DDFtf0fT5Wj6 CT1BVOwEIq6Cq3ORKbhK NvB1MUrmql5MJGL4eLAzvMyL8rZVZcf8iFfhJlcggLOF81bwjjajC2jsAf5ilz3ucSeFzwqeSMBUwSArCT927r4uPjjjOhM8j0iBlWAhwfcKDiDafSixnfraYFJmOUGFx2Qiwd/VX2mzTpHhnvzT8mpq4NQKxAObMs7yFpf1AmP6LDXxOESRVV3kNtd5TeY5zJGefB6sBLr7/IRUqGiNDXw2dQ0QQClRpSxTALl8L1iNWZFp6nKJV QdHmUcAFfqMQt9sOZFK3l8XwlAss9DoyLhzvbhUIw5yebzdCI1gXifA/ygn2N2Frc5CJ nE6mXMN7HR3WUn/mGEtVwelGMLmlHmwxzpCdvkKUTVhuuBAuRwXHGOCMvcZTHrQvV0SZ3aDHE4Z78T/q1pRNx/85SMMc2LQCOMcqb8iEihagdD EwzIh1TEOM4DCUyw8xwjX9IPSv /4NHFc8rupFAKblHNv8iB8MTgdcKSf8d09EpyxTlLTKHn8wySyb3Bi4DsT9d8OBsGf/5HdEClSw570rdTbUDJ50HejN7/tPTaAsU4nRKSJRIhDvc409mKYDNr8UzOGKxyQvWMHDZ2NBu2HWBqEDyzpvCVKYaA52tD1QHVDVxGYzx7HBun45UB3oqwI39As2dC3UCU3qBEBbb/EPf6fyJ U0JznNnu5GOoCGL6k7bEUxUmeBCf6dfpa4zUYnVoIFlnWeNusW373Ls4XzPMMb0f9aYnJmJGCCQ9ghJaocY5RJZq33hW4 DfEkThHaG1hHEA9ukK8T2X0eT4Jg359RR sS3td7AHRosaoNvMJ7ANbtNWvLOo8rHqd46kAfNsaPmUFWBX5jK/XbL0sntjXs8xJVXLzc1zDjx1QhSuD/fnRm9XkWzAxyOtrC18sPHbj7u6AfuOLxH RafRbJ4I28AAAAAElFTkSuQmCC"}
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/custom_image_upload_controller.rb:9
+  [1m[36mEntry Create (0.9ms)[0m  [1m[32mINSERT INTO "entries" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2019-01-13 05:43:48.987155"], ["updated_at", "2019-01-13 05:43:48.987155"]]
+  ↳ app/controllers/custom_image_upload_controller.rb:9
+  [1m[35m (0.4ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/custom_image_upload_controller.rb:9
+Completed 500 Internal Server Error in 35ms (ActiveRecord: 3.5ms)
+
+
+  
+Errno::ENOENT (No such file or directory @ rb_sysopen - tmp/uploaded_images/1547358228uploaded_pic./png):
+  
+app/models/entry.rb:27:in `initialize'
+app/models/entry.rb:27:in `open'
+app/models/entry.rb:27:in `upload_image'
+app/controllers/custom_image_upload_controller.rb:9:in `upload_image'
+Started POST "/upload_image" for 127.0.0.1 at 2019-01-12 21:44:49 -0800
+Processing by CustomImageUploadController#upload_image as */*
+  Parameters: {"user_id"=>"1", "picture"=>"image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAA7EAAAOxAGVKw4bAAADt0lEQVRYha2Xz28bVRDHP OuE1VRpZYW5JIa4kSRXFUEAfEGNUhc4AIScKhXQqo48idUHBKh9FYk4AQSdzjUIaHpid4QElA2pJWagw2oJCJWnUuDEI1o LHDYfs2u3673rj4e7Lfd3Zm3rw339mV28F1HZcZ kVHm/ja4PXCuz3tPgrOpa4f50lc8XB8XaSCi4j0FbjNet9Jm8A1qTPODCKCc5dNNvAZ52BVuM8ue w ROAnqIkXBTZwAPqpQkWmGeM5NlljVRu59o9QpiYeE8wgUrD4AoCpAsC3wae5TrdpofxLXS6xFMyxpbcSfEeb/KLfA7DDFtf0fT5Wj6 CT1BVOwEIq6Cq3ORKbhK NvB1MUrmql5MJGL4eLAzvMyL8rZVZcf8iFfhJlcggLOF81bwjjajC2jsAf5ilz3ucSeFzwqeSMBUwSArCT927r4uPjjjOhM8j0iBlWAhwfcKDiDafSixnfraYFJmOUGFx2Qiwd/VX2mzTpHhnvzT8mpq4NQKxAObMs7yFpf1AmP6LDXxOESRVV3kNtd5TeY5zJGefB6sBLr7/IRUqGiNDXw2dQ0QQClRpSxTALl8L1iNWZFp6nKJV QdHmUcAFfqMQt9sOZFK3l8XwlAss9DoyLhzvbhUIw5yebzdCI1gXifA/ygn2N2Frc5CJ nE6mXMN7HR3WUn/mGEtVwelGMLmlHmwxzpCdvkKUTVhuuBAuRwXHGOCMvcZTHrQvV0SZ3aDHE4Z78T/q1pRNx/85SMMc2LQCOMcqb8iEihagdD EwzIh1TEOM4DCUyw8xwjX9IPSv /4NHFc8rupFAKblHNv8iB8MTgdcKSf8d09EpyxTlLTKHn8wySyb3Bi4DsT9d8OBsGf/5HdEClSw570rdTbUDJ50HejN7/tPTaAsU4nRKSJRIhDvc409mKYDNr8UzOGKxyQvWMHDZ2NBu2HWBqEDyzpvCVKYaA52tD1QHVDVxGYzx7HBun45UB3oqwI39As2dC3UCU3qBEBbb/EPf6fyJ U0JznNnu5GOoCGL6k7bEUxUmeBCf6dfpa4zUYnVoIFlnWeNusW373Ls4XzPMMb0f9aYnJmJGCCQ9ghJaocY5RJZq33hW4 DfEkThHaG1hHEA9ukK8T2X0eT4Jg359RR sS3td7AHRosaoNvMJ7ANbtNWvLOo8rHqd46kAfNsaPmUFWBX5jK/XbL0sntjXs8xJVXLzc1zDjx1QhSuD/fnRm9XkWzAxyOtrC18sPHbj7u6AfuOLxH RafRbJ4I28AAAAAElFTkSuQmCC"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/custom_image_upload_controller.rb:9
+  [1m[36mEntry Create (1.7ms)[0m  [1m[32mINSERT INTO "entries" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2019-01-13 05:44:49.297776"], ["updated_at", "2019-01-13 05:44:49.297776"]]
+  ↳ app/controllers/custom_image_upload_controller.rb:9
+Sending HTTP get https://www.googleapis.com/storage/v1/b/secure-zone-bucket?
+200
+#<HTTP::Message:0x00007f243817d8c0 @http_header=#<HTTP::Message::Headers:0x00007f243817d898 @http_version="1.1", @body_size=0, @chunked=false, @request_method="GET", @request_uri=#<Addressable::URI:0x3f921c0bf160 URI:https://www.googleapis.com/storage/v1/b/secure-zone-bucket?>, @request_query=nil, @request_absolute_uri=nil, @status_code=200, @reason_phrase="OK", @body_type=nil, @body_charset=nil, @body_date=nil, @body_encoding=#<Encoding:UTF-8>, @is_request=false, @header_item=[["X-GUploader-UploadID", "AEnB2Uori5OqLWqJK2AO8z1nTqhW8li1hgKwF1Op_WMtWZ75rejpN3Lu25biSDL5lwyWUnRKtKytujO0em6yngq1yFIIonJlOQ"], ["ETag", "CAI="], ["Vary", "Origin"], ["Vary", "X-Origin"], ["Content-Type", "application/json; charset=UTF-8"], ["Expires", "Sun, 13 Jan 2019 05:44:49 GMT"], ["Date", "Sun, 13 Jan 2019 05:44:49 GMT"], ["Cache-Control", "private, max-age=0, must-revalidate, no-transform"], ["Content-Length", "453"], ["Server", "UploadServer"], ["Alt-Svc", "quic=\":443\"; ma=2592000; v=\"44,43,39,35\""]], @dumped=false>, @peer_cert=#<OpenSSL::X509::Certificate: subject=#<OpenSSL::X509::Name CN=*.googleapis.com,O=Google LLC,L=Mountain View,ST=California,C=US>, issuer=#<OpenSSL::X509::Name CN=Google Internet Authority G3,O=Google Trust Services,C=US>, serial=#<OpenSSL::BN:0x000055a65c55e2d8>, not_before=2018-12-19 08:17:00 UTC, not_after=2019-03-13 08:17:00 UTC>, @http_body=#<HTTP::Message::Body:0x00007f243817d820 @body="{\n \"kind\": \"storage#bucket\",\n \"id\": \"secure-zone-bucket\",\n \"selfLink\": \"https://www.googleapis.com/storage/v1/b/secure-zone-bucket\",\n \"projectNumber\": \"455997785376\",\n \"name\": \"secure-zone-bucket\",\n \"timeCreated\": \"2019-01-12T14:02:12.513Z\",\n \"updated\": \"2019-01-12T22:32:38.464Z\",\n \"metageneration\": \"2\",\n \"iamConfiguration\": {\n  \"bucketPolicyOnly\": {\n   \"enabled\": false\n  }\n },\n \"location\": \"US-WEST1\",\n \"storageClass\": \"REGIONAL\",\n \"etag\": \"CAI=\"\n}\n", @size=0, @positions=nil, @chunk_size=nil>, @previous=nil>
+Success - #<Google::Apis::StorageV1::Bucket:0x000055a65c55d810
+ @etag="CAI=",
+ @iam_configuration=
+  #<Google::Apis::StorageV1::Bucket::IamConfiguration:0x00007f243829a4b0
+   @bucket_policy_only=
+    #<Google::Apis::StorageV1::Bucket::IamConfiguration::BucketPolicyOnly:0x00007f2438299dd0
+     @enabled=false>>,
+ @id="secure-zone-bucket",
+ @kind="storage#bucket",
+ @location="US-WEST1",
+ @metageneration=2,
+ @name="secure-zone-bucket",
+ @project_number=455997785376,
+ @self_link="https://www.googleapis.com/storage/v1/b/secure-zone-bucket",
+ @storage_class="REGIONAL",
+ @time_created=Sat, 12 Jan 2019 14:02:12 +0000,
+ @updated=Sat, 12 Jan 2019 22:32:38 +0000>
+
+Sending upload start command to https://www.googleapis.com/upload/storage/v1/b/secure-zone-bucket/o?name=images%2F1547358289uploaded_pic.
+Upload status active
+Sending upload command to https://www.googleapis.com/upload/storage/v1/b/secure-zone-bucket/o?name=images%2F1547358289uploaded_pic.&upload_id=AEnB2Uq0a1TWW4yDGLtOKR6CQ-gD-N2cJF7SIDHpVC2lfP0MSXEc4oCbLqxh0dqqOjfHVMBhtI07aAuRF8wG-zLRpHSu0MPi0A&upload_protocol=resumable
+Upload status final
+Success - #<Google::Apis::StorageV1::Object:0x000055a65c543140
+ @bucket="secure-zone-bucket",
+ @content_type="application/octet-stream",
+ @crc32c="dhzuqg==",
+ @etag="CKSm9umG6t8CEAE=",
+ @generation=1547358290416420,
+ @id="secure-zone-bucket/images/1547358289uploaded_pic./1547358290416420",
+ @kind="storage#object",
+ @md5_hash="U0gJwo3eVhcj7SxmBNl3tQ==",
+ @media_link=
+  "https://www.googleapis.com/download/storage/v1/b/secure-zone-bucket/o/images%2F1547358289uploaded_pic.?generation=1547358290416420&alt=media",
+ @metageneration=1,
+ @name="images/1547358289uploaded_pic.",
+ @self_link=
+  "https://www.googleapis.com/storage/v1/b/secure-zone-bucket/o/images%2F1547358289uploaded_pic.",
+ @size=1022,
+ @storage_class="REGIONAL",
+ @time_created=Sun, 13 Jan 2019 05:44:50 +0000,
+ @time_storage_class_updated=Sun, 13 Jan 2019 05:44:50 +0000,
+ @updated=Sun, 13 Jan 2019 05:44:50 +0000>
+
+  [1m[36mEntry Update (0.3ms)[0m  [1m[33mUPDATE "entries" SET "picture_url" = ? WHERE "entries"."id" = ?[0m  [["picture_url", "https://storage.googleapis.com/secure-zone-bucket/images/1547358289uploaded_pic."], ["id", 1]]
+  ↳ app/models/entry.rb:33
+  [1m[35m (11.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/custom_image_upload_controller.rb:9
+  Rendering custom_image_upload/upload_image.json.jbuilder
+  Rendered custom_image_upload/upload_image.json.jbuilder (1.2ms)
+Completed 200 OK in 1363ms (Views: 19.5ms | ActiveRecord: 13.9ms)
+
+
+  [1m[36mEntry Load (1.3ms)[0m  [1m[34mSELECT  "entries".* FROM "entries" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (3.8ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["first_name", "bob"], ["created_at", "2019-01-13 05:54:42.297308"], ["updated_at", "2019-01-13 05:54:42.297308"]]
+  [1m[35m (5.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mEntry Load (0.7ms)[0m  [1m[34mSELECT  "entries".* FROM "entries" ORDER BY "entries"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mEntry Load (0.3ms)[0m  [1m[34mSELECT  "entries".* FROM "entries" ORDER BY "entries"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+Started POST "/upload_image" for 127.0.0.1 at 2019-01-12 22:01:54 -0800
+Processing by CustomImageUploadController#upload_image as */*
+  Parameters: {"user_id"=>"1", "picture"=>"iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAA7EAAAOxAGVKw4bAAADt0lEQVRYha2Xz28bVRDHP OuE1VRpZYW5JIa4kSRXFUEAfEGNUhc4AIScKhXQqo48idUHBKh9FYk4AQSdzjUIaHpid4QElA2pJWagw2oJCJWnUuDEI1o LHDYfs2u3673rj4e7Lfd3Zm3rw339mV28F1HZcZ kVHm/ja4PXCuz3tPgrOpa4f50lc8XB8XaSCi4j0FbjNet9Jm8A1qTPODCKCc5dNNvAZ52BVuM8ue w ROAnqIkXBTZwAPqpQkWmGeM5NlljVRu59o9QpiYeE8wgUrD4AoCpAsC3wae5TrdpofxLXS6xFMyxpbcSfEeb/KLfA7DDFtf0fT5Wj6 CT1BVOwEIq6Cq3ORKbhK NvB1MUrmql5MJGL4eLAzvMyL8rZVZcf8iFfhJlcggLOF81bwjjajC2jsAf5ilz3ucSeFzwqeSMBUwSArCT927r4uPjjjOhM8j0iBlWAhwfcKDiDafSixnfraYFJmOUGFx2Qiwd/VX2mzTpHhnvzT8mpq4NQKxAObMs7yFpf1AmP6LDXxOESRVV3kNtd5TeY5zJGefB6sBLr7/IRUqGiNDXw2dQ0QQClRpSxTALl8L1iNWZFp6nKJV QdHmUcAFfqMQt9sOZFK3l8XwlAss9DoyLhzvbhUIw5yebzdCI1gXifA/ygn2N2Frc5CJ nE6mXMN7HR3WUn/mGEtVwelGMLmlHmwxzpCdvkKUTVhuuBAuRwXHGOCMvcZTHrQvV0SZ3aDHE4Z78T/q1pRNx/85SMMc2LQCOMcqb8iEihagdD EwzIh1TEOM4DCUyw8xwjX9IPSv /4NHFc8rupFAKblHNv8iB8MTgdcKSf8d09EpyxTlLTKHn8wySyb3Bi4DsT9d8OBsGf/5HdEClSw570rdTbUDJ50HejN7/tPTaAsU4nRKSJRIhDvc409mKYDNr8UzOGKxyQvWMHDZ2NBu2HWBqEDyzpvCVKYaA52tD1QHVDVxGYzx7HBun45UB3oqwI39As2dC3UCU3qBEBbb/EPf6fyJ U0JznNnu5GOoCGL6k7bEUxUmeBCf6dfpa4zUYnVoIFlnWeNusW373Ls4XzPMMb0f9aYnJmJGCCQ9ghJaocY5RJZq33hW4 DfEkThHaG1hHEA9ukK8T2X0eT4Jg359RR sS3td7AHRosaoNvMJ7ANbtNWvLOo8rHqd46kAfNsaPmUFWBX5jK/XbL0sntjXs8xJVXLzc1zDjx1QhSuD/fnRm9XkWzAxyOtrC18sPHbj7u6AfuOLxH RafRbJ4I28AAAAAElFTkSuQmCC"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/custom_image_upload_controller.rb:9
+  [1m[36mEntry Create (0.5ms)[0m  [1m[32mINSERT INTO "entries" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2019-01-13 06:01:54.323908"], ["updated_at", "2019-01-13 06:01:54.323908"]]
+  ↳ app/controllers/custom_image_upload_controller.rb:9
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/custom_image_upload_controller.rb:9
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 1.3ms)
+
+
+  
+NoMethodError (undefined method `-' for nil:NilClass):
+  
+app/models/entry.rb:23:in `upload_image'
+app/controllers/custom_image_upload_controller.rb:9:in `upload_image'
+Started POST "/upload_image" for 127.0.0.1 at 2019-01-12 22:04:01 -0800
+Processing by CustomImageUploadController#upload_image as */*
+  Parameters: {"user_id"=>"1", "picture"=>"iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAA7EAAAOxAGVKw4bAAADt0lEQVRYha2Xz28bVRDHP OuE1VRpZYW5JIa4kSRXFUEAfEGNUhc4AIScKhXQqo48idUHBKh9FYk4AQSdzjUIaHpid4QElA2pJWagw2oJCJWnUuDEI1o LHDYfs2u3673rj4e7Lfd3Zm3rw339mV28F1HZcZ kVHm/ja4PXCuz3tPgrOpa4f50lc8XB8XaSCi4j0FbjNet9Jm8A1qTPODCKCc5dNNvAZ52BVuM8ue w ROAnqIkXBTZwAPqpQkWmGeM5NlljVRu59o9QpiYeE8wgUrD4AoCpAsC3wae5TrdpofxLXS6xFMyxpbcSfEeb/KLfA7DDFtf0fT5Wj6 CT1BVOwEIq6Cq3ORKbhK NvB1MUrmql5MJGL4eLAzvMyL8rZVZcf8iFfhJlcggLOF81bwjjajC2jsAf5ilz3ucSeFzwqeSMBUwSArCT927r4uPjjjOhM8j0iBlWAhwfcKDiDafSixnfraYFJmOUGFx2Qiwd/VX2mzTpHhnvzT8mpq4NQKxAObMs7yFpf1AmP6LDXxOESRVV3kNtd5TeY5zJGefB6sBLr7/IRUqGiNDXw2dQ0QQClRpSxTALl8L1iNWZFp6nKJV QdHmUcAFfqMQt9sOZFK3l8XwlAss9DoyLhzvbhUIw5yebzdCI1gXifA/ygn2N2Frc5CJ nE6mXMN7HR3WUn/mGEtVwelGMLmlHmwxzpCdvkKUTVhuuBAuRwXHGOCMvcZTHrQvV0SZ3aDHE4Z78T/q1pRNx/85SMMc2LQCOMcqb8iEihagdD EwzIh1TEOM4DCUyw8xwjX9IPSv /4NHFc8rupFAKblHNv8iB8MTgdcKSf8d09EpyxTlLTKHn8wySyb3Bi4DsT9d8OBsGf/5HdEClSw570rdTbUDJ50HejN7/tPTaAsU4nRKSJRIhDvc409mKYDNr8UzOGKxyQvWMHDZ2NBu2HWBqEDyzpvCVKYaA52tD1QHVDVxGYzx7HBun45UB3oqwI39As2dC3UCU3qBEBbb/EPf6fyJ U0JznNnu5GOoCGL6k7bEUxUmeBCf6dfpa4zUYnVoIFlnWeNusW373Ls4XzPMMb0f9aYnJmJGCCQ9ghJaocY5RJZq33hW4 DfEkThHaG1hHEA9ukK8T2X0eT4Jg359RR sS3td7AHRosaoNvMJ7ANbtNWvLOo8rHqd46kAfNsaPmUFWBX5jK/XbL0sntjXs8xJVXLzc1zDjx1QhSuD/fnRm9XkWzAxyOtrC18sPHbj7u6AfuOLxH RafRbJ4I28AAAAAElFTkSuQmCC"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/custom_image_upload_controller.rb:9
+  [1m[36mEntry Create (0.3ms)[0m  [1m[32mINSERT INTO "entries" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2019-01-13 06:04:01.978591"], ["updated_at", "2019-01-13 06:04:01.978591"]]
+  ↳ app/controllers/custom_image_upload_controller.rb:9
+Sending HTTP get https://www.googleapis.com/storage/v1/b/secure-zone-bucket?
+200
+#<HTTP::Message:0x00007f24405f31e0 @http_header=#<HTTP::Message::Headers:0x00007f24405f31b8 @http_version="1.1", @body_size=0, @chunked=false, @request_method="GET", @request_uri=#<Addressable::URI:0x3f92202f9df0 URI:https://www.googleapis.com/storage/v1/b/secure-zone-bucket?>, @request_query=nil, @request_absolute_uri=nil, @status_code=200, @reason_phrase="OK", @body_type=nil, @body_charset=nil, @body_date=nil, @body_encoding=#<Encoding:UTF-8>, @is_request=false, @header_item=[["X-GUploader-UploadID", "AEnB2UrnwrrGZjcmKeiPOP1uCL8rag0ScOBJIr2PDcIhXsAnqX6P0n1RkgkSJdIU66iMF9bps-imY8_vl-gLp3CmWNPYcTjbpA"], ["ETag", "CAI="], ["Vary", "Origin"], ["Vary", "X-Origin"], ["Content-Type", "application/json; charset=UTF-8"], ["Expires", "Sun, 13 Jan 2019 06:04:02 GMT"], ["Date", "Sun, 13 Jan 2019 06:04:02 GMT"], ["Cache-Control", "private, max-age=0, must-revalidate, no-transform"], ["Content-Length", "453"], ["Server", "UploadServer"], ["Alt-Svc", "quic=\":443\"; ma=2592000; v=\"44,43,39,35\""]], @dumped=false>, @peer_cert=#<OpenSSL::X509::Certificate: subject=#<OpenSSL::X509::Name CN=*.googleapis.com,O=Google LLC,L=Mountain View,ST=California,C=US>, issuer=#<OpenSSL::X509::Name CN=Google Internet Authority G3,O=Google Trust Services,C=US>, serial=#<OpenSSL::BN:0x00007f24405db0b8>, not_before=2018-12-19 08:17:00 UTC, not_after=2019-03-13 08:17:00 UTC>, @http_body=#<HTTP::Message::Body:0x00007f24405f3140 @body="{\n \"kind\": \"storage#bucket\",\n \"id\": \"secure-zone-bucket\",\n \"selfLink\": \"https://www.googleapis.com/storage/v1/b/secure-zone-bucket\",\n \"projectNumber\": \"455997785376\",\n \"name\": \"secure-zone-bucket\",\n \"timeCreated\": \"2019-01-12T14:02:12.513Z\",\n \"updated\": \"2019-01-12T22:32:38.464Z\",\n \"metageneration\": \"2\",\n \"iamConfiguration\": {\n  \"bucketPolicyOnly\": {\n   \"enabled\": false\n  }\n },\n \"location\": \"US-WEST1\",\n \"storageClass\": \"REGIONAL\",\n \"etag\": \"CAI=\"\n}\n", @size=0, @positions=nil, @chunk_size=nil>, @previous=nil>
+Success - #<Google::Apis::StorageV1::Bucket:0x00007f24405da9b0
+ @etag="CAI=",
+ @iam_configuration=
+  #<Google::Apis::StorageV1::Bucket::IamConfiguration:0x00007f24405d8f98
+   @bucket_policy_only=
+    #<Google::Apis::StorageV1::Bucket::IamConfiguration::BucketPolicyOnly:0x00007f24405d8a48
+     @enabled=false>>,
+ @id="secure-zone-bucket",
+ @kind="storage#bucket",
+ @location="US-WEST1",
+ @metageneration=2,
+ @name="secure-zone-bucket",
+ @project_number=455997785376,
+ @self_link="https://www.googleapis.com/storage/v1/b/secure-zone-bucket",
+ @storage_class="REGIONAL",
+ @time_created=Sat, 12 Jan 2019 14:02:12 +0000,
+ @updated=Sat, 12 Jan 2019 22:32:38 +0000>
+
+Sending upload start command to https://www.googleapis.com/upload/storage/v1/b/secure-zone-bucket/o?name=images%2F1547359441uploaded_pic.png
+Upload status active
+Sending upload command to https://www.googleapis.com/upload/storage/v1/b/secure-zone-bucket/o?name=images%2F1547359441uploaded_pic.png&upload_id=AEnB2UqWqJ9T0gtXPkgTYZMV6DJ5Jm0GCU0ObPKyrBTpOwihzMVFg6TAaHUtizFY6UYwBL8d9Bdp5_OfaEVqIXkJNisnh67V9Q&upload_protocol=resumable
+Upload status final
+Success - #<Google::Apis::StorageV1::Object:0x00007f2440560e08
+ @bucket="secure-zone-bucket",
+ @content_type="image/png",
+ @crc32c="uttXzg==",
+ @etag="CJiu0Y+L6t8CEAE=",
+ @generation=1547359443244824,
+ @id="secure-zone-bucket/images/1547359441uploaded_pic.png/1547359443244824",
+ @kind="storage#object",
+ @md5_hash="nFBMJkn7cGhKsFw/q85n0w==",
+ @media_link=
+  "https://www.googleapis.com/download/storage/v1/b/secure-zone-bucket/o/images%2F1547359441uploaded_pic.png?generation=1547359443244824&alt=media",
+ @metageneration=1,
+ @name="images/1547359441uploaded_pic.png",
+ @self_link=
+  "https://www.googleapis.com/storage/v1/b/secure-zone-bucket/o/images%2F1547359441uploaded_pic.png",
+ @size=1017,
+ @storage_class="REGIONAL",
+ @time_created=Sun, 13 Jan 2019 06:04:03 +0000,
+ @time_storage_class_updated=Sun, 13 Jan 2019 06:04:03 +0000,
+ @updated=Sun, 13 Jan 2019 06:04:03 +0000>
+
+  [1m[36mEntry Update (0.2ms)[0m  [1m[33mUPDATE "entries" SET "picture_url" = ? WHERE "entries"."id" = ?[0m  [["picture_url", "https://storage.googleapis.com/secure-zone-bucket/images/1547359441uploaded_pic.png"], ["id", 2]]
+  ↳ app/models/entry.rb:34
+  [1m[35m (14.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/custom_image_upload_controller.rb:9
+  Rendering custom_image_upload/upload_image.json.jbuilder
+  Rendered custom_image_upload/upload_image.json.jbuilder (0.6ms)
+Completed 200 OK in 1351ms (Views: 12.9ms | ActiveRecord: 15.2ms)
+
+
+Started POST "/upload_picture" for 127.0.0.1 at 2019-01-12 22:05:43 -0800
+  
+ActionController::RoutingError (No route matches [POST] "/upload_picture"):
+  
+actionpack (5.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.2) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from instance_eval at /home/dumbooctopus/.rbenv/versions/2.5.3/lib/ruby/gems/2.5.0/gems/activesupport-5.2.2/lib/active_support/lazy_load_hooks.rb:71)

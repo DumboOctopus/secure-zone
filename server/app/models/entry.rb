@@ -20,12 +20,13 @@ class Entry < ApplicationRecord
     server_dir_structure = "tmp/uploaded_images/"
 
     fname = Time.now.to_i.to_s + "uploaded_pic"
-    extension = picture[11..(picture.index(";")-1)]
+    extension = "png"
     fname += "." + extension
     puts picture
 
     File.open(server_dir_structure+fname, "wb") do |file|
-        file.write(Base64.decode64(picture))
+
+      file.write(Base64.decode64(picture))
     end
 
     file = Entry.storage_bucket.create_file( server_dir_structure + fname, path=cloud_dir_structure + fname)
@@ -38,6 +39,7 @@ class Entry < ApplicationRecord
 
   # [START delete]
   before_destroy :delete_image, if: :picture_url
+
 
   def delete_image
     image_uri = URI.parse picture_url
