@@ -34,7 +34,7 @@ uri.query = URI.encode_www_form({
     'returnFaceId' => 'true',
     'returnFaceLandmarks' => 'false'
 })
-Dir.foreach('../angela_pics') do |item|
+Dir.foreach('./angela_pics') do |item|
     next if item == '.' or item == '..'
     request = Net::HTTP::Post.new(uri.request_uri)
     # Request headers
@@ -58,7 +58,7 @@ uri.query = URI.encode_www_form({
     'returnFaceId' => 'true',
     'returnFaceLandmarks' => 'false'
 })
-Dir.foreach('../neil_pics') do |item|
+Dir.foreach('./neil_pics') do |item|
     next if item == '.' or item == '..'
     request = Net::HTTP::Post.new(uri.request_uri)
     # Request headers
@@ -82,7 +82,7 @@ uri.query = URI.encode_www_form({
     'returnFaceId' => 'true',
     'returnFaceLandmarks' => 'false'
 })
-Dir.foreach('../nathan_pics') do |item|
+Dir.foreach('./nathan_pics') do |item|
     next if item == '.' or item == '..'
     request = Net::HTTP::Post.new(uri.request_uri)
     # Request headers
@@ -170,7 +170,7 @@ puts personIds
 uri = URI('https://westcentralus.api.cognitive.microsoft.com/face/v1.0/persongroups/names/persons/' + personIds['Angela'] + '/persistedFaces')
 uri.query = URI.encode_www_form({
 })
-Dir.foreach('../angela_pics') do |item|
+Dir.foreach('./angela_pics') do |item|
     next if item == '.' or item == '..'
     request = Net::HTTP::Post.new(uri.request_uri)
     # Request headers
@@ -191,7 +191,7 @@ sleep(60)
 uri = URI('https://westcentralus.api.cognitive.microsoft.com/face/v1.0/persongroups/names/persons/' + personIds['Neil'] + '/persistedFaces')
 uri.query = URI.encode_www_form({
 })
-Dir.foreach('../neil_pics') do |item|
+Dir.foreach('./neil_pics') do |item|
     next if item == '.' or item == '..'
     request = Net::HTTP::Post.new(uri.request_uri)
     # Request headers
@@ -213,7 +213,7 @@ sleep(60)
 uri = URI('https://westcentralus.api.cognitive.microsoft.com/face/v1.0/persongroups/names/persons/' + personIds['Nathan'] + '/persistedFaces')
 uri.query = URI.encode_www_form({
 })
-Dir.foreach('../nathan_pics') do |item|
+Dir.foreach('./nathan_pics') do |item|
     next if item == '.' or item == '..'
     request = Net::HTTP::Post.new(uri.request_uri)
     # Request headers
@@ -265,3 +265,5 @@ response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https'
 end
 
 puts personIds.key(JSON.parse(response.body)[0]['candidates'][0]['personId'])
+
+puts personIds

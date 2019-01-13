@@ -1,10 +1,11 @@
 class CustomImageUploadController < ApplicationController
     before_action :set_user, only: [:index, :show]
 
-    def index
-        @user.picture = params[:picture]
-        puts "asdf " + @user.picture.to_s
-        @user.update_image
+    def upload_image
+        e = Entry.new do |entry|
+          entry.user = @user
+          entry.picture = user_params[:picture]
+        end
     end
 
     def show
