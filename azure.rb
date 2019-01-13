@@ -258,7 +258,7 @@ request['Content-Type'] = 'application/json'
 # Request headers
 request['Ocp-Apim-Subscription-Key'] = data_hash['secret_key']
 # Request body
-request.body = "{'personGroupId': 'names', 'faceIds': ['" + dictionary['Angela'][2] + "'], 'maxNumOfCandidatesReturned': 1, 'confidenceThreshold': 0.5}"
+request.body = "{'personGroupId': 'names', 'faceIds': ['" + dictionary['Angela'][2] + "'], 'maxNumOfCandidatesReturned': 1, 'confidenceThreshold': 0.4}"
 
 response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') do |http|
     http.request(request)
