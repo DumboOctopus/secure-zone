@@ -7,7 +7,7 @@ class User < ApplicationRecord
       config = Rails.application.config.x.settings
 
       storage = Google::Cloud::Storage.new project_id: config["project_id"],
-                              credentials: config["keyfile"]
+                               credentials: config["keyfile"]
       storage.bucket config["gcs_bucket"]
     end
   end
@@ -20,16 +20,19 @@ class User < ApplicationRecord
   after_create :upload_image, if: :picture
 
   def upload_image
-    fname = "tmp/uploaded_images/" + Time.now.to_i.to_s + "uploaded_pic"
-    extension = picture[11..picture.index(";")]
+    cloud_dir_structure = "images/";
+    server_dir_structure = "tmp/uploaded_images/"
+
+    fname = Time.now.to_i.to_s + "uploaded_pic"
+    extension = picture[11..(picture.index(";")-1)]
     fname += "." + extension
     puts picture
 
-    File.open(fname, "wb") do |file|
+    File.open(server_dir_structure+fname, "wb") do |file|
         file.write(Base64.decode64(picture))
     end
 
-    file = User.storage_bucket.create_file fname
+    file = User.storage_bucket.create_file( server_dir_structure + fname, path=cloud_dir_structure + fname)
 
     update_columns picture_url: file.public_url
   end

@@ -3,6 +3,7 @@ class CustomImageUploadController < ApplicationController
 
     def index
         @user.picture = params[:picture]
+        puts "asdf " + @user.picture.to_s
         @user.update_image
     end
 

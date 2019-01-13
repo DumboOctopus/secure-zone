@@ -17,8 +17,8 @@ gem 'uglifier', '>= 1.3.0'
 # gem 'mini_racer', platforms: :ruby
 
 gem 'twilio-ruby'
-gem "google-cloud-datastore", "~> 1.4"
-gem "google-cloud-storage", "~> 1.10"
+gem "google-cloud-datastore", '>=1.4.4'
+gem "google-cloud-storage", '>=1.15.0 '
 gem 'rack-cors'
 
 
