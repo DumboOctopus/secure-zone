@@ -1,1 +1,1 @@
-json.extract! @user, :picture
+json.extract! @entry, :picture

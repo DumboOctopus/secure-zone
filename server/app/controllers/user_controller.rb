@@ -8,7 +8,7 @@ class UserController < ApplicationController
   def new
     p = user_params
     user = User.new do |u|
-      u.picture = p.picture
+      # u.picture = p.picture
       u.first_name = p.first_name
       u.last_name = p.last_name
       u.phone = p.phone
@@ -17,7 +17,7 @@ class UserController < ApplicationController
       render :user_creation_success
     else
       render :user_creation_failure
-
+    end
   end
 
   private
