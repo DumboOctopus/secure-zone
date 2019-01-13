@@ -44,10 +44,9 @@ request.body = "{'personGroupId': 'names', 'faceIds': ['" + id + "'], 'maxNumOfC
 response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') do |http|
     http.request(request)
 end
-  person = personIds.key(JSON.parse(response.body)[0]['candidates'][0]['personId'])
-
-
-
+  json = JSON.parse(response.body)[0]['candidates']
+if json.length != 0
+person = personIds.key(json[0]['faceId'])
 account_sid = data_hash['account_sid'] # Your Account SID from www.twilio.com/console
 auth_token = data_hash['auth_token']   # Your Auth Token from www.twilio.com/console
 
@@ -59,5 +58,5 @@ message = @client.messages.create(
 
 puts message.sid
 end
-  
+end
 end
