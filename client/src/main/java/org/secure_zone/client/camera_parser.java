@@ -1,14 +1,14 @@
 package org.secure_zone.client;
 
-import org.apache.commons.codec.binary.Base64;
-import org.apache.commons.io.FileUtils;
+import com.cloudinary.Cloudinary;
+
 import org.apache.http.HttpEntity;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
-import org.apache.http.entity.StringEntity;
+
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.message.BasicNameValuePair;
@@ -18,24 +18,29 @@ import org.bytedeco.javacv.*;
 
 import static org.bytedeco.javacpp.opencv_imgcodecs.*;
 import java.io.File;
-import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
-import java.util.List;
+import java.io.IOException;
 
-import javax.imageio.ImageIO;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 
 public class camera_parser implements Runnable {
 	CanvasFrame canvas;
 	FrameGrabber grabber;
 	static boolean interrupted = false;
 	static String fileName;
-	static String server = "https://secure-zone-backend.appspot.com";
+	static String server = "https://secure-zone.herokuapp.com";
 	static String user_id = "1";
 
 	public camera_parser() {
 		canvas = new CanvasFrame("Camera");
 		grabber = new OpenCVFrameGrabber(0);
 		canvas.setDefaultCloseOperation(javax.swing.JFrame.EXIT_ON_CLOSE);
+		canvas.setCanvasSize(1200, 900);
+
+		
 	}
 
 	public void stop() {
@@ -43,6 +48,30 @@ public class camera_parser implements Runnable {
 			grabber.release();
 			canvas.dispose();
 		} catch (Exception e) {
+		}
+	}
+	
+	public static void putOnline(File data) {
+		Cloudinary cloudinary = new Cloudinary();
+		try {
+			HashMap<String,Object> hm = new HashMap <String, Object>();
+			hm.put("api_key","462933916592457");
+			hm.put("api_secret","vvCcIJBnpeUij6bLCVRBhLfSOuo");
+			hm.put("cloud_name","dcnsvbx3y");
+
+			
+			Map uploadResult = cloudinary.uploader().upload(data, hm);
+			
+			String publicId = (String) uploadResult.get("public_id");
+
+			String cloudinaryServer = "https://res.cloudinary.com/dcnsvbx3y/image/upload/";
+			
+			String link = cloudinaryServer + publicId;
+			System.out.println(link);
+			
+			post("upload_image", link);
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
 	}
 
@@ -60,7 +89,7 @@ public class camera_parser implements Runnable {
 					}
 
 					saveImage();
-					for(int i = 0; i < 100; i++) {
+					for(int i = 0; i < 200; i++) {
 						try {
 							grabber.start();
 							if(interrupted)
@@ -72,7 +101,7 @@ public class camera_parser implements Runnable {
 
 							canvas.showImage(converter.convert(img));
 
-							Thread.sleep(100);
+							Thread.sleep(50);
 
 
 						} catch (Exception e) {
@@ -88,7 +117,7 @@ public class camera_parser implements Runnable {
 		}
 
 			public void saveImage() {
-				try {
+				try { 
 					Frame frame = grabber.grab();
 					OpenCVFrameConverter.ToIplImage converter = new OpenCVFrameConverter.ToIplImage();
 
@@ -98,11 +127,15 @@ public class camera_parser implements Runnable {
 					cvSaveImage(tempFile.getAbsolutePath(), img);
 					System.out.println(tempFile.getAbsolutePath());
 
-					byte[] encoded = Base64.encodeBase64(FileUtils.readFileToByteArray(tempFile));
-					String base64 = new String(encoded, StandardCharsets.US_ASCII);
-					post("upload_image", base64);
+			//		byte[] encoded = Base64.encodeBase64(FileUtils.readFileToByteArray(tempFile));
+			//		String base64 = new String(encoded, StandardCharsets.US_ASCII);
+				    
+			//		System.out.println("\n"+base64+"\n");
+			//		post("upload_image", base64);
+					
+					putOnline(tempFile);
 
-					tempFile.deleteOnExit();
+				//	tempFile.deleteOnExit();
 					try {
 						Thread.sleep(1000);
 					} catch (Exception e) {
