@@ -1,0 +1,3 @@
+org\secure_zone\client\client_master.class
+org\secure_zone\client\screen_parser.class
+org\secure_zone\client\camera_parser.class
